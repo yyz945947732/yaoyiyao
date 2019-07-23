@@ -27,7 +27,7 @@
             <text>确定</text>
         </button>
     </view>
-    <button class="save">
+    <button class="save" bindtap="save">
         <text>保存选项</text>
     </button>
 </view>
