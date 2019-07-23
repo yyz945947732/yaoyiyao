@@ -5,10 +5,11 @@ Page({
     data: {
         userInfo: {},
         logged: false,
-        options: ['黄焖鸡米饭啊啊', '张姐麻辣烫', '黄焖鸡米饭', '张姐麻辣烫', '黄焖鸡米饭', '张姐麻辣烫', '黄焖鸡米饭', '张姐麻辣烫', '黄焖鸡米饭', '张姐麻辣烫', '黄焖鸡米饭啊啊', '张姐麻辣烫', '黄焖鸡米饭', '张姐麻辣烫', '黄焖鸡米饭', '张姐麻辣烫', '黄焖鸡米饭', '张姐麻辣烫', '黄焖鸡米饭', '张姐麻辣烫', '黄焖鸡米饭啊啊', '张姐麻辣烫', '黄焖鸡米饭', '张姐麻辣烫', '黄焖鸡米饭', '张姐麻辣烫', '黄焖鸡米饭', '张姐麻辣烫', '黄焖鸡米饭', '张姐麻辣烫', '黄焖鸡米饭啊啊', '张姐麻辣烫', '黄焖鸡米饭', '张姐麻辣烫', '黄焖鸡米饭', '张姐麻辣烫', '黄焖鸡米饭', '张姐麻辣烫', '黄焖鸡米饭', '张姐麻辣烫'],
+        options: ['黄焖鸡米饭啊啊', '张姐麻辣烫', '黄焖鸡米饭', '老干妈', '啦啦啦', '老干爹', '老太婆', '嘻嘻嘻', '呜呜呜', '气死了', '别别'],
         num: 5,
         answer: 0,
-        runMode: false
+        runMode: false,
+        over: false
     },
 
     onLoad() {
@@ -59,21 +60,63 @@ Page({
 
     run() {
         this.setData({
-            runMode: true
+            runMode: true,
+            over: false,
+            answer: 0,
+            num: 5
         })
         this.beginCount();
     },
 
     beginCount() {
         let runId = setInterval(() => {
-            if (this.data.num == 0) {
-                clearInterval(runId)
-            } else {
-                this.setData({
-                    num: this.data.num - 1
-                })
-            }
-        }, 1000)
+                if (this.data.num == 0) {
+                    clearInterval(runId)
+                    this.setData({
+                        runMode: false,
+                        over: true
+                    })
+                } else {
+                    this.setData({
+                        runId,
+                        num: this.data.num - 1
+                    })
+                }
+            }, 1000),
+            answerRunId = setInterval(() => {
+                if (this.data.num == 0) {
+                    setTimeout(() => {
+                        clearInterval(answerRunId)
+                    }, 1000)
+                } else {
+                    this.setData({
+                        answerRunId,
+                        answer: this.getRandom()
+                    })
+                }
+            }, 200)
+
+    },
+
+    getRandom() {
+        let answer = Math.floor(Math.random() * this.data.options.length)
+        answer == this.data.answer ? this.getRandom() : ''
+        return answer
+    },
+
+    back() {
+        if (this.data.runId && this.data.answerRunId && this.data.num < 5) {
+            clearInterval(this.data.runId);
+            clearInterval(this.data.answerRunId);
+            this.setData({
+                runMode: false,
+                over: false,
+                answer: 0,
+                num: 5
+            })
+        } else {
+            return
+        }
     }
 
 })

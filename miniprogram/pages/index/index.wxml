@@ -1,4 +1,4 @@
-<scroll-view class="body" scroll-y="true" upper-threshold="50" lower-threshold="50" scroll-top="0" wx:if="{{!runMode}}">
+<scroll-view class="body" scroll-y="true" upper-threshold="50" lower-threshold="50" scroll-top="0" wx:if="{{!runMode&&!over}}">
   <view class="title" hover-class="none" hover-stop-propagation="false">
     <text selectable="false" space="false" decode="false">我的选项</text>
   </view>
@@ -8,7 +8,7 @@
     </view>
   </view>
 </scroll-view>
-<view class="body" hover-class="none" hover-stop-propagation="false" wx:if="{{runMode}}">
+<view class="body" hover-class="none" hover-stop-propagation="false" wx:if="{{runMode&&!over}}">
   <view class="num" hover-class="none" hover-stop-propagation="false">
     <text selectable="false" space="false" decode="false">{{num}}</text>
   </view>
@@ -16,6 +16,15 @@
     <text selectable="false" space="false" decode="false">{{options[answer]}}</text>
   </view>
 </view>
-<button class="run" size="default" bindtap="run">
+<view class="body" hover-class="none" hover-stop-propagation="false" wx:if="{{over}}">
+  <view class="answer-body" hover-class="none" hover-stop-propagation="false">
+    <text selectable="false" space="false" decode="false">你摇到了</text>
+    <text selectable="false" space="false" decode="false">{{options[answer]}}</text>
+  </view>
+</view>
+<button class="run" size="default" bindtap="run" wx:if="{{!runMode&&!over}}">
   <text selectable="false" space="false" decode="false">摇起来</text>
+</button>
+<button class="back" size="default" bindtap="back" plain wx:if="{{over||runMode}}">
+  <text selectable="false" space="false" decode="false">返回</text>
 </button>

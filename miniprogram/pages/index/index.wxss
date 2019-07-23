@@ -70,6 +70,16 @@ page {
     display: flex;
 }
 
+.back{
+    width: 92%;
+    height: 100rpx;
+    margin: 100rpx auto;
+    background: #fff;
+    justify-content: center;
+    align-items: center;
+    display: flex; 
+}
+
 .body .num {
     width: 100%;
     height: 460rpx;
@@ -95,4 +105,26 @@ page {
 .body .answer text {
     font-size: 46rpx;
     font-weight: bold;
+}
+
+.body .answer-body{
+    width: 100%;
+    height: 180rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    flex-direction: column;
+}
+
+.body .answer-body text:first-child{
+    color:#000;
+    font-size: 50rpx;
+    letter-spacing: 2rpx;
+}
+
+.body .answer-body text{
+    color:#66CDAA;
+    font-size: 62rpx;
+    letter-spacing: 3rpx;
 }
