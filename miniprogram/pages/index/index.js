@@ -56,14 +56,24 @@ Page({
             fail: err => {}
         })
     },
+
     run() {
         this.setData({
             runMode: true
         })
         this.beginCount();
     },
-    beginCount() {
 
+    beginCount() {
+        let runId = setInterval(() => {
+            if (this.data.num == 0) {
+                clearInterval(runId)
+            } else {
+                this.setData({
+                    num: this.data.num - 1
+                })
+            }
+        }, 1000)
     }
 
 })
