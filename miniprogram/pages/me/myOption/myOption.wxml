@@ -1,0 +1,17 @@
+<!-- pages/me/myOption/myOption.wxml -->
+<view class="body" hover-class="none" hover-stop-propagation="false">
+    <view class="title" hover-class="none" hover-stop-propagation="false">
+        <image src="../../../images/xuanxiang.svg"></image>
+        <text selectable="false" space="false" decode="false">我的选项</text>
+    </view>
+    <view class="list" hover-class="none" hover-stop-propagation="false">
+        <view class="item" hover-class="none" hover-stop-propagation="false" wx:for="{{options}}" wx:key="{{index}}">
+            <view class="index" hover-class="none" hover-stop-propagation="false">
+                <text>{{index+1}}</text>
+            </view>
+            <view class="content" hover-class="none" hover-stop-propagation="false">
+                <text>{{item}}</text>
+            </view>
+        </view>
+    </view>
+</view>

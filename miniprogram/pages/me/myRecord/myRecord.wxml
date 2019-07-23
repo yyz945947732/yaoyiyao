@@ -1,0 +1,33 @@
+<!-- pages/me/myRecord/myRecord.wxml -->
+<view class="body" hover-class="none" hover-stop-propagation="false">
+    <view class="title" hover-class="none" hover-stop-propagation="false">
+        <image src="../../../images/jilu.svg"></image>
+        <text selectable="false" space="false" decode="false">我的记录</text>
+    </view>
+    <view class="list" hover-class="none" hover-stop-propagation="false">
+        <view class="item" hover-class="none" hover-stop-propagation="false">
+            <view class="date" hover-class="none" hover-stop-propagation="false">
+                <image src="../../../images/date.svg"></image>
+                <text>2019-1-1 12:00:00</text>
+            </view>
+            <view class="content" hover-class="none" hover-stop-propagation="false">
+                <text>你在</text>
+                <text class="num">108</text>
+                <text>个选项中抽中了</text>
+                <text class="choosed">啦啦啦</text>
+            </view>
+        </view>
+        <view class="item" hover-class="none" hover-stop-propagation="false">
+            <view class="date" hover-class="none" hover-stop-propagation="false">
+                <image src="../../../images/date.svg"></image>
+                <text>2019-1-1 12:00:00</text>
+            </view>
+            <view class="content" hover-class="none" hover-stop-propagation="false">
+                <text>你在</text>
+                <text class="num">108</text>
+                <text>个选项中抽中了</text>
+                <text class="choosed">啦啦啦</text>
+            </view>
+        </view>
+    </view>
+</view>

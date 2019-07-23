@@ -1,0 +1,73 @@
+/* pages/option/option.wxss */
+
+.body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.body .title {
+    display: flex;
+    align-items: center;
+    height: 120rpx;
+    width: 100%;
+    background: #fff;
+    box-sizing: border-box;
+    padding-left: 20rpx;
+    margin-bottom: 50rpx;
+}
+
+.body .title image {
+    height: 36rpx;
+    width: 36rpx;
+}
+
+.body .title text {
+    font-size: 36rpx;
+    color: #66CDAA;
+    font-weight: bold;
+    margin-left: 6rpx;
+}
+
+.list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.list .item {
+    display: flex;
+    align-items: center;
+    height: 100rpx;
+    background: #fff;
+    box-sizing: border-box;
+    padding-left: 20rpx;
+}
+
+.list .item .index {
+    height: 60rpx;
+    width: 60rpx;
+    border-radius: 50%;
+    background: #66CDAA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list .item .index text {
+    color: #fff;
+    font-weight: bold;
+    font-size: 24rpx;
+}
+
+.list .item .content {
+    margin-left: 20rpx;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.list .item .content text {
+    font-size: 30rpx;
+}

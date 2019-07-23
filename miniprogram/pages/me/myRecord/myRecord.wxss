@@ -1,0 +1,86 @@
+/* pages/me/myRecord/myRecord.wxss */
+
+.body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.body .title {
+    display: flex;
+    align-items: center;
+    height: 120rpx;
+    width: 100%;
+    background: #fff;
+    box-sizing: border-box;
+    padding-left: 20rpx;
+    margin-bottom: 50rpx;
+}
+
+.body .title image {
+    height: 36rpx;
+    width: 36rpx;
+}
+
+.body .title text {
+    font-size: 36rpx;
+    color: #66CDAA;
+    font-weight: bold;
+    margin-left: 6rpx;
+}
+
+.body .list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.body .list .item {
+    height: 200rpx;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50rpx;
+    background: #fff;
+    box-sizing: border-box;
+    padding-left: 20rpx;
+}
+
+.body .list .item .date {
+    display: flex;
+    align-items: center;
+    height: 80rpx;
+    border-bottom: 1px solid #f7f7f7;
+}
+
+.body .list .item .date text {
+    color: #8a8a8a;
+    font-size: 26rpx;
+    margin-left: 8rpx;
+}
+
+.body .list .item .date image {
+    height: 36rpx;
+    width: 36rpx;
+}
+
+.body .list .item .content {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    color: #909399;
+    font-size: 32rpx;
+    letter-spacing: 2rpx;
+    padding-left: 38rpx;
+    box-sizing: border-box;
+}
+
+.body .list .item .num {
+    color: #F56C6C;
+    font-weight: bold;
+}
+
+.body .list .item .choosed {
+    color: #66CDAA;
+    font-weight: bold;
+}

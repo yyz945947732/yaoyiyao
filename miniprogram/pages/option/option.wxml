@@ -1,0 +1,33 @@
+<!-- pages/option/option.wxml -->
+<view class="body" hover-class="none" hover-stop-propagation="false">
+    <view class="title" hover-class="none" hover-stop-propagation="false">
+        <image src="../../images/xuanxiang.svg"></image>
+        <text selectable="false" space="false" decode="false">我的选项</text>
+    </view>
+    <view class="list" hover-class="none" hover-stop-propagation="false">
+        <view class="item" hover-class="none" hover-stop-propagation="false" wx:for="{{options}}" wx:key="{{index}}">
+            <view class="index" hover-class="none" hover-stop-propagation="false">
+                <text>{{index+1}}</text>
+            </view>
+            <view class="content" hover-class="none" hover-stop-propagation="false">
+                <text>{{item}}</text>
+            </view>
+            <view class="remove" hover-class="none" hover-stop-propagation="false" bindtap="remove" data-i="{{index}}">
+                <text>移除</text>
+            </view>
+        </view>
+    </view>
+    <view class="add" hover-class="none" hover-stop-propagation="false" bindtap="addOption">
+        <image src="../../images/add.svg"></image>
+        <text selectable="false" space="false" decode="false">添加一项</text>
+    </view>
+    <view class="newOption" hover-class="none" hover-stop-propagation="false" wx:if="{{ifAdd}}">
+        <input type="text" placeholder="请输入新增选项(7个字以内)" bindchange="setNewOption" maxlength="7"></input>
+        <button size="default" type="default" bindtap="confirm">
+            <text>确定</text>
+        </button>
+    </view>
+    <button class="save">
+        <text>保存选项</text>
+    </button>
+</view>
