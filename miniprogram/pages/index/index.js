@@ -11,15 +11,11 @@ Page({
         runMode: false,
         over: false
     },
-    onShow() {
-        this.getOptions();
-    },
     onLoad() {
         if (!wx.cloud) {
             return
         }
         this.onGetOpenid();
-        this.getOptions();
         // 获取用户信息
         wx.getSetting({
             success: res => {
@@ -39,10 +35,17 @@ Page({
         })
     },
 
+    onTabItemTap(item) {
+        if (item.index == 0 && app.globalData.openid) {
+            this.getOptions();
+        }
+    },
+
     getOptions() {
         wx.showLoading({
             title: '正在加载'
         })
+        console.log(app.globalData.openid)
         db.collection('yyy_options').where({
             _openid: app.globalData.openid
         }).get().then(res => {
@@ -53,10 +56,7 @@ Page({
             })
             wx.hideLoading()
         }).catch(() => {
-            wx.showToast({
-                title: '系统繁忙',
-                icon: 'none'
-            })
+            wx.hideLoading()
         })
     },
 
@@ -67,6 +67,7 @@ Page({
                 avatarUrl: e.detail.userInfo.avatarUrl,
                 userInfo: e.detail.userInfo
             })
+            app.globalData.userInfo = e.detail.userInfo
         }
     },
 
@@ -77,12 +78,20 @@ Page({
             data: {},
             success: res => {
                 app.globalData.openid = res.result.openid
+                this.getOptions();
             },
             fail: err => {}
         })
     },
 
     run() {
+        if (!this.data.options.length) {
+            wx.showToast({
+                title: '你还没有选项',
+                icon: 'none'
+            });
+            return
+        }
         this.setData({
             runMode: true,
             over: false,

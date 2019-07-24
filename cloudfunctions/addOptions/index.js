@@ -1,12 +1,13 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
-const db = wx.cloud.database()
+
 
 cloud.init()
+const db = cloud.database()
+const wxContext = cloud.getWXContext()
 
 // 云函数入口函数
 exports.main = async (event) => {
-  const wxContext = cloud.getWXContext();
   let {
     options,
     create_date,
@@ -18,9 +19,13 @@ exports.main = async (event) => {
       options,
       create_date,
       total,
-      userName
+      userName,
+      _openid:wxContext.OPENID
     }
   }).then(res => {
     console.log(res)
   })
+  return{
+    event
+  }
 }

@@ -3,9 +3,17 @@
     <text selectable="false" space="false" decode="false">我的选项</text>
   </view>
   <view class="list" hover-class="none" hover-stop-propagation="false">
-    <view class="item" hover-class="none" hover-stop-propagation="false" wx:for="{{options}}" wx:key="{{item}}">
-      <text selectable="false" space="false" decode="false">{{item}}</text>
-    </view>
+    <block wx:if="{{options.length}}">
+      <view class="item" hover-class="none" hover-stop-propagation="false" wx:for="{{options}}" wx:key="{{item}}">
+        <text selectable="false" space="false" decode="false">{{item}}</text>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="none" hover-class="none" hover-stop-propagation="false">
+        <image src="../../images/none.svg"></image>
+        <text selectable="false" space="false" decode="false">你还一个选项都没有,快去添加一个吧~</text>
+      </view>
+    </block>
   </view>
 </scroll-view>
 <view class="body" hover-class="none" hover-stop-propagation="false" wx:if="{{runMode&&!over}}">
@@ -22,7 +30,10 @@
     <text selectable="false" space="false" decode="false">{{options[answer]}}</text>
   </view>
 </view>
-<button class="run" size="default" bindtap="run" wx:if="{{!runMode&&!over}}">
+<button class="run" size="default" bindtap="run" wx:if="{{!runMode&&!over&&logged}}">
+  <text selectable="false" space="false" decode="false">摇起来</text>
+</button>
+<button class="run" size="default" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" wx:if="{{!logged}}">
   <text selectable="false" space="false" decode="false">摇起来</text>
 </button>
 <button class="back" size="default" bindtap="back" plain wx:if="{{over||runMode}}">
