@@ -1,22 +1,25 @@
 //index.js
 const app = getApp()
-
+const db = wx.cloud.database();
 Page({
     data: {
         userInfo: {},
         logged: false,
-        options: ['黄焖鸡米饭啊啊', '张姐麻辣烫', '黄焖鸡米饭', '老干妈', '啦啦啦', '老干爹', '老太婆', '嘻嘻嘻', '呜呜呜', '气死了', '别别'],
+        options: [],
         num: 5,
         answer: 0,
         runMode: false,
         over: false
     },
-
+    onShow() {
+        this.getOptions();
+    },
     onLoad() {
         if (!wx.cloud) {
             return
         }
         this.onGetOpenid();
+        this.getOptions();
         // 获取用户信息
         wx.getSetting({
             success: res => {
@@ -33,6 +36,27 @@ Page({
                     })
                 }
             }
+        })
+    },
+
+    getOptions() {
+        wx.showLoading({
+            title: '正在加载'
+        })
+        db.collection('yyy_options').where({
+            _openid: app.globalData.openid
+        }).get().then(res => {
+            console.log(res)
+            this.setData({
+                options: res.data[0].options,
+                optionId: res.data[0]._id
+            })
+            wx.hideLoading()
+        }).catch(() => {
+            wx.showToast({
+                title: '系统繁忙',
+                icon: 'none'
+            })
         })
     },
 

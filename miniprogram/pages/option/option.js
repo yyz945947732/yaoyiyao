@@ -74,11 +74,7 @@ Page({
                 userName: app.globalData.userInfo.nickName
             }
         }).then(() => {
-            wx.hideLoading();
-            wx.showToast({
-                title: '保存成功',
-                icon: 'success'
-            });
+            this.success()
         }).catch(() => {
             wx.showToast({
                 title: '系统繁忙',
@@ -95,17 +91,25 @@ Page({
                 userName: app.globalData.userInfo.nickName
             }
         }).then(() => {
-            wx.hideLoading();
-            wx.showToast({
-                title: '保存成功',
-                icon: 'success'
-            });
+            this.success()
         }).catch(() => {
             wx.showToast({
                 title: '系统繁忙',
                 icon: 'none'
             });
         })
+    },
+    success() {
+        wx.hideLoading();
+        wx.switchTab({
+            url: '/pages/index/index',
+            success: () => {
+                wx.showToast({
+                    title: '保存成功',
+                    icon: 'success'
+                });
+            }
+        });
     },
     ifAddBefore() {
         db.collection('yyy_options').where({

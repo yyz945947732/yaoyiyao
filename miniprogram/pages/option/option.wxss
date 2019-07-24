@@ -146,3 +146,23 @@
     align-items: center;
     display: flex;
 }
+
+.none {
+    width: 100%;
+    height: 500rpx;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #fff;
+    flex-direction: column;
+}
+
+.none text {
+    font-size: 32rpx;
+    color: #909399;
+}
+
+.none image {
+    width: 280rpx;
+    height: 280rpx;
+}

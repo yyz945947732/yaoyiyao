@@ -5,17 +5,25 @@
         <text selectable="false" space="false" decode="false">我的选项</text>
     </view>
     <view class="list" hover-class="none" hover-stop-propagation="false">
-        <view class="item" hover-class="none" hover-stop-propagation="false" wx:for="{{options}}" wx:key="{{index}}">
-            <view class="index" hover-class="none" hover-stop-propagation="false">
-                <text>{{index+1}}</text>
+        <block wx:if="{{options.length}}">
+            <view class="item" hover-class="none" hover-stop-propagation="false" wx:for="{{options}}" wx:key="{{index}}">
+                <view class="index" hover-class="none" hover-stop-propagation="false">
+                    <text>{{index+1}}</text>
+                </view>
+                <view class="content" hover-class="none" hover-stop-propagation="false">
+                    <text>{{item}}</text>
+                </view>
+                <view class="remove" hover-class="none" hover-stop-propagation="false" bindtap="remove" data-i="{{index}}">
+                    <text>移除</text>
+                </view>
             </view>
-            <view class="content" hover-class="none" hover-stop-propagation="false">
-                <text>{{item}}</text>
+        </block>
+        <block wx:else>
+            <view class="none" hover-class="none" hover-stop-propagation="false">
+                <image src="../../images/none.svg"></image>
+                <text selectable="false" space="false" decode="false">你还一个选项都没有,快去添加一个吧~</text>
             </view>
-            <view class="remove" hover-class="none" hover-stop-propagation="false" bindtap="remove" data-i="{{index}}">
-                <text>移除</text>
-            </view>
-        </view>
+        </block>
     </view>
     <view class="add" hover-class="none" hover-stop-propagation="false" bindtap="addOption">
         <image src="../../images/add.svg"></image>
