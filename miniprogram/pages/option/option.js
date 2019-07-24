@@ -2,13 +2,33 @@ const app = getApp();
 const db = wx.cloud.database();
 Page({
     data: {
-        options: ['黄焖鸡米饭', '张姐麻辣烫'],
+        options: [],
         ifAdd: false,
         newOption: ''
     },
 
     onLoad() {
-
+        this.getOptions()
+    },
+    getOptions() {
+        wx.showLoading({
+            title: '正在加载'
+        })
+        db.collection('yyy_options').where({
+            _openid: app.globalData.openid
+        }).get().then(res => {
+            console.log(res)
+            this.setData({
+                options: res.data[0].options,
+                optionId: res.data[0]._id
+            })
+            wx.hideLoading()
+        }).catch(() => {
+            wx.showToast({
+                title: '系统繁忙',
+                icon: 'none'
+            })
+        })
     },
     addOption() {
         this.setData({
@@ -43,6 +63,9 @@ Page({
         wx.showLoading({
             title: '正在提交'
         })
+        this.ifAddBefore();
+    },
+    add() {
         db.collection('yyy_options').add({
             data: {
                 options: this.data.options,
@@ -61,6 +84,39 @@ Page({
                 title: '系统繁忙',
                 icon: 'none'
             });
+        })
+    },
+    update() {
+        db.collection('yyy_options').doc(this.data.optionId).update({
+            data: {
+                options: this.data.options,
+                create_date: this.formatTime(new Date),
+                total: this.data.options.length,
+                userName: app.globalData.userInfo.nickName
+            }
+        }).then(() => {
+            wx.hideLoading();
+            wx.showToast({
+                title: '保存成功',
+                icon: 'success'
+            });
+        }).catch(() => {
+            wx.showToast({
+                title: '系统繁忙',
+                icon: 'none'
+            });
+        })
+    },
+    ifAddBefore() {
+        db.collection('yyy_options').where({
+            _openid: app.globalData.openid
+        }).get().then(res => {
+            !res.data.length ? this.add() : this.update()
+        }).catch(() => {
+            wx.showToast({
+                title: '系统繁忙',
+                icon: 'none'
+            })
         })
     },
     formatTime(date) {

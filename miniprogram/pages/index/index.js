@@ -106,17 +106,26 @@ Page({
 
     back() {
         if (this.data.runId && this.data.answerRunId && this.data.num < 5) {
-            clearInterval(this.data.runId);
-            clearInterval(this.data.answerRunId);
-            this.setData({
-                runMode: false,
-                over: false,
-                answer: 0,
-                num: 5
-            })
+            this.clean()
         } else {
             return
         }
+    },
+    clean() {
+        clearInterval(this.data.runId);
+        clearInterval(this.data.answerRunId);
+        this.setData({
+            runMode: false,
+            over: false,
+            answer: 0,
+            num: 5
+        })
+    },
+    onHide() {
+        this.clean()
+    },
+    onUnload() {
+        this.clean()
     }
 
 })
