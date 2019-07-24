@@ -1,11 +1,29 @@
+const app = getApp();
+const db = wx.cloud.database();
 Page({
 
 
     data: {
-        options: ['黄焖鸡米饭', '张姐麻辣烫']
+        options: []
     },
 
     onLoad() {
-
-    }
+        this.getOptions()
+    },
+    getOptions() {
+        wx.showLoading({
+            title: '正在加载'
+        })
+        db.collection('yyy_options').where({
+            _openid: app.globalData.openid
+        }).get().then(res => {
+            this.setData({
+                options: res.data[0].options,
+                optionId: res.data[0]._id
+            })
+            wx.hideLoading()
+        }).catch(() => {
+            wx.hideLoading()
+        })
+    },
 })

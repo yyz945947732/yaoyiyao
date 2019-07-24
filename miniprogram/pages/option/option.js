@@ -62,24 +62,6 @@ Page({
         })
         this.ifAddBefore();
     },
-    // add() {
-    //     wx.cloud.callFunction({
-    //         name: 'addOptions',
-    //         data: {
-    //             options: this.data.options,
-    //             create_date: this.formatTime(new Date),
-    //             total: this.data.options.length,
-    //             userName: app.globalData.userInfo.nickName
-    //         }
-    //     }).then(() => {
-    //         this.success()
-    //     }).catch(() => {
-    //         wx.showToast({
-    //             title: '系统繁忙',
-    //             icon: 'none'
-    //         });
-    //     })
-    // },
     add() {
         db.collection('yyy_options').add({
             data: {

@@ -139,7 +139,7 @@
 .body .save {
     width: 92%;
     height: 100rpx;
-    margin: 60rpx auto;
+    margin: 39rpx auto;
     background: #66CDAA;
     color: #fff;
     justify-content: center;

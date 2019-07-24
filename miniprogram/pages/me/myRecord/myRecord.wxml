@@ -5,29 +5,19 @@
         <text selectable="false" space="false" decode="false">我的记录</text>
     </view>
     <view class="list" hover-class="none" hover-stop-propagation="false">
-        <view class="item" hover-class="none" hover-stop-propagation="false">
+        <view class="item" hover-class="none" hover-stop-propagation="false" wx:for="{{records}}" wx:key="{{item}}">
             <view class="date" hover-class="none" hover-stop-propagation="false">
                 <image src="../../../images/date.svg"></image>
-                <text>2019-1-1 12:00:00</text>
+                <text>{{item.create_date}}</text>
             </view>
             <view class="content" hover-class="none" hover-stop-propagation="false">
                 <text>你在</text>
-                <text class="num">108</text>
+                <text class="num">{{item.total}}</text>
                 <text>个选项中抽中了</text>
-                <text class="choosed">啦啦啦</text>
+                <text class="choosed">{{item.answer}}</text>
             </view>
         </view>
-        <view class="item" hover-class="none" hover-stop-propagation="false">
-            <view class="date" hover-class="none" hover-stop-propagation="false">
-                <image src="../../../images/date.svg"></image>
-                <text>2019-1-1 12:00:00</text>
-            </view>
-            <view class="content" hover-class="none" hover-stop-propagation="false">
-                <text>你在</text>
-                <text class="num">108</text>
-                <text>个选项中抽中了</text>
-                <text class="choosed">啦啦啦</text>
-            </view>
-        </view>
+        <text wx:if="{{loadOver}}" class="loadOver">加载完了~</text>
+        <text wx:if="{{!records.length}}" class="noRecord">暂无记录</text>
     </view>
 </view>

@@ -11,6 +11,9 @@ Page({
         runMode: false,
         over: false
     },
+    onShow() {
+        app.globalData.openid ? this.getOptions() : ''
+    },
     onLoad() {
         if (!wx.cloud) {
             return
@@ -25,7 +28,8 @@ Page({
                         success: res => {
                             this.setData({
                                 avatarUrl: res.userInfo.avatarUrl,
-                                userInfo: res.userInfo
+                                userInfo: res.userInfo,
+                                logged: true
                             })
                             app.globalData.userInfo = res.userInfo
                         }
@@ -35,13 +39,10 @@ Page({
         })
     },
 
-    onTabItemTap(item) {
-        if (item.index == 0 && app.globalData.openid) {
-            this.getOptions();
-        }
-    },
-
     getOptions() {
+        if (!app.globalData.openid) {
+            return
+        }
         wx.showLoading({
             title: '正在加载'
         })

@@ -33,6 +33,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    padding-bottom: 50rpx;
 }
 
 .body .list .item {
@@ -83,4 +84,17 @@
 .body .list .item .choosed {
     color: #66CDAA;
     font-weight: bold;
+}
+
+.noRecord{
+    margin:100rpx auto;
+    color:#cdcdcd;
+    font-weight: bold;
+    font-size: 40rpx;
+}
+
+.loadOver{
+    margin:0 auto;
+    color:#cdcdcd;
+    font-size: 36rpx;
 }
