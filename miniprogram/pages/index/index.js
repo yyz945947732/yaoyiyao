@@ -45,7 +45,6 @@ Page({
         wx.showLoading({
             title: '正在加载'
         })
-        console.log(app.globalData.openid)
         db.collection('yyy_options').where({
             _openid: app.globalData.openid
         }).get().then(res => {
@@ -80,7 +79,7 @@ Page({
                 app.globalData.openid = res.result.openid
                 this.getOptions();
             },
-            fail: err => {}
+            fail: () => {}
         })
     },
 
@@ -105,10 +104,7 @@ Page({
         let runId = setInterval(() => {
                 if (this.data.num == 0) {
                     clearInterval(runId)
-                    this.setData({
-                        runMode: false,
-                        over: true
-                    })
+                    this.writeRecord()
                 } else {
                     this.setData({
                         runId,
@@ -131,6 +127,30 @@ Page({
 
     },
 
+    writeRecord() {
+        wx.showLoading({
+            title: '生成记录中',
+            mask: true
+        })
+        db.collection('yyy_record').add({
+            data: {
+                answer: this.data.options[this.data.answer],
+                options: this.data.options,
+                create_date: this.formatTime(new Date),
+                total: this.data.options.length,
+                userName: app.globalData.userInfo.nickName
+            }
+        }).then(() => {
+            this.setData({
+                runMode: false,
+                over: true
+            })
+            wx.hideLoading()
+        }).catch(() => {
+            wx.hideLoading()
+        })
+    },
+
     getRandom() {
         let answer = Math.floor(Math.random() * this.data.options.length)
         answer == this.data.answer ? this.getRandom() : ''
@@ -143,6 +163,19 @@ Page({
         } else {
             return
         }
+    },
+    formatTime(date) {
+        const year = date.getFullYear()
+        const month = date.getMonth() + 1
+        const day = date.getDate()
+        const hour = date.getHours()
+        const minute = date.getMinutes()
+        const second = date.getSeconds()
+        return [year, month, day].map(this.formatNumber).join('-') + ' ' + [hour, minute, second].map(this.formatNumber).join(':')
+    },
+    formatNumber(n) {
+        n = n.toString()
+        return n[1] ? n : '0' + n
     },
     clean() {
         clearInterval(this.data.runId);
