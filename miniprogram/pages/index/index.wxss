@@ -5,6 +5,21 @@ page {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
+}
+
+.bellBox {
+    display: flex;
+    justify-content: space-between;
+    width: 96%;
+    margin: 0 auto;
+    height: 90rpx;
+}
+
+.bellBox image {
+    height: 80rpx;
+    width: 80rpx;
+    margin: auto 0;
 }
 
 .body {
@@ -70,14 +85,14 @@ page {
     display: flex;
 }
 
-.back{
+.back {
     width: 92%;
     height: 100rpx;
     margin: 100rpx auto;
     background: #fff;
     justify-content: center;
     align-items: center;
-    display: flex; 
+    display: flex;
 }
 
 .body .num {
@@ -107,7 +122,7 @@ page {
     font-weight: bold;
 }
 
-.body .answer-body{
+.body .answer-body {
     width: 100%;
     height: 180rpx;
     display: flex;
@@ -117,14 +132,14 @@ page {
     flex-direction: column;
 }
 
-.body .answer-body text:first-child{
-    color:#000;
+.body .answer-body text:first-child {
+    color: #000;
     font-size: 50rpx;
     letter-spacing: 2rpx;
 }
 
-.body .answer-body text{
-    color:#66CDAA;
+.body .answer-body text {
+    color: #66CDAA;
     font-size: 62rpx;
     letter-spacing: 3rpx;
 }
