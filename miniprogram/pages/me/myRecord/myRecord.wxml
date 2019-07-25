@@ -5,7 +5,7 @@
             <image src="../../../images/jilu.svg"></image>
             <text selectable="false" space="false" decode="false">我的记录</text>
         </view>
-        <text class="remove" bindtap="clearAllRecords">清空</text>
+        <text class="remove" bindtap="clearAllRecords" wx:if="{{records.length}}">清空</text>
     </view>
     <view class="list" hover-class="none" hover-stop-propagation="false">
         <view class="item" hover-class="none" hover-stop-propagation="false" wx:for="{{records}}" wx:key="{{item}}">

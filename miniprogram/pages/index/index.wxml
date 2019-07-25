@@ -15,7 +15,11 @@
     <block wx:else>
       <view class="none" hover-class="none" hover-stop-propagation="false">
         <image src="../../images/none.svg"></image>
-        <text selectable="false" space="false" decode="false">你还一个选项都没有,快去添加一个吧~</text>
+        <view hover-class="none" hover-stop-propagation="false">
+          <text>你还一个选项都没有,快</text>
+          <text class="navText" bindtap="navToAdd">去添加</text>
+          <text>吧~</text>
+        </view>
       </view>
     </block>
   </view>

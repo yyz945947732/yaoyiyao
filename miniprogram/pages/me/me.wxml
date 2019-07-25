@@ -16,6 +16,8 @@
     <text>我的记录</text>
     <image src="../../images/right.svg" class="right"></image>
   </navigator>
+</view>
+<view class="bodyList">
   <button class="bodyItem" open-type="contact">
     <image src="../../images/kefu.svg"></image>
     <text>在线客服</text>

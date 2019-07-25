@@ -85,11 +85,20 @@ Page({
     },
 
     run() {
-        if (!this.data.options.length) {
-            wx.showToast({
-                title: '你还没有选项',
-                icon: 'none'
-            });
+        if (this.data.options.length < 2) {
+            wx.showModal({
+                title: '选项不足',
+                content: '至少要有两个选项才可以噢,去添加选项吗?',
+                cancelText: '不用了',
+                confirmText: '好的',
+                success: res => {
+                    if (res.confirm) {
+                        wx.switchTab({
+                            url: '/pages/option/option'
+                        })
+                    }
+                }
+            })
             return
         }
         this.setData({
@@ -193,6 +202,11 @@ Page({
     },
     onUnload() {
         this.clean()
+    },
+    navToAdd() {
+        wx.switchTab({
+            url: '/pages/option/option'
+        });
     },
     onShareAppMessage() {
         if (this.data.over) {

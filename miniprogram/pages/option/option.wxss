@@ -184,3 +184,8 @@
     width: 280rpx;
     height: 280rpx;
 }
+
+.navText{
+    color:#66CDAA !important;
+    text-decoration: underline;
+}

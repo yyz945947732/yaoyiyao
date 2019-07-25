@@ -71,3 +71,10 @@
 .list .item .content text {
     font-size: 30rpx;
 }
+
+.noOption {
+    margin: 100rpx auto;
+    color: #cdcdcd;
+    font-weight: bold;
+    font-size: 40rpx;
+}

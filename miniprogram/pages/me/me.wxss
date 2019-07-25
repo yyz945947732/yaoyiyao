@@ -61,9 +61,7 @@
     padding: 0 0 0 20rpx;
     background-color: white;
     border-bottom: 1px solid #e5e5e5;
-    position: relative;
-    bottom: 50rpx;
-    margin-top: 100rpx;
+    margin-top: 50rpx;
 }
 
 .bodyList button {
