@@ -4,6 +4,7 @@ Page({
     data: {
         options: [],
         ifAdd: false,
+        focus: false,
         newOption: ''
     },
 
@@ -29,7 +30,8 @@ Page({
     },
     addOption() {
         this.setData({
-            ifAdd: true
+            ifAdd: true,
+            focus: true
         })
     },
     clearAllOptions() {
@@ -62,6 +64,9 @@ Page({
             ifAdd: false,
             options,
             newOption: ''
+        })
+        wx.pageScrollTo({
+            scrollTop: 1000
         })
     },
     setNewOption(e) {
@@ -156,9 +161,10 @@ Page({
         n = n.toString()
         return n[1] ? n : '0' + n
     },
-    close(){
+    close() {
         this.setData({
             ifAdd: false,
+            focus: false,
             newOption: ''
         })
     },

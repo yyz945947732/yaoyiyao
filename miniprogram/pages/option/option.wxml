@@ -48,7 +48,8 @@
         <view class="close" hover-class="none" hover-stop-propagation="false">
             <image src="../../images/close.svg" bindtap="close"></image>
         </view>
-        <input type="text" placeholder="请输入新增选项(7个字以内)" bindchange="setNewOption" maxlength="7"></input>
+        <input type="text" placeholder="请输入新增选项(7个字以内)" bindchange="setNewOption" maxlength="7"
+        focus="{{focus}}"></input>
         <button size="default" type="primary" bindtap="confirm">
             <text>确定</text>
         </button>
