@@ -12,7 +12,7 @@ exports.main = async() => {
         msgtype: 'text',
         text: {
             content: '收到',
-        },
+        }
     })
 
     return 'success'
