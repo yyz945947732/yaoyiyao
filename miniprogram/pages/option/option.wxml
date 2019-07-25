@@ -36,13 +36,18 @@
         <image src="../../images/add.svg"></image>
         <text selectable="false" space="false" decode="false">添加一项</text>
     </view>
-    <view class="newOption" hover-class="none" hover-stop-propagation="false" wx:if="{{ifAdd}}">
-        <input type="text" placeholder="请输入新增选项(7个字以内)" bindchange="setNewOption" maxlength="7"></input>
-        <button size="default" type="default" bindtap="confirm">
-            <text>确定</text>
-        </button>
-    </view>
     <button class="save" bindtap="save">
         <text>保存</text>
     </button>
+</view>
+<view class="cover" hover-class="none" hover-stop-propagation="false" wx:if="{{ifAdd}}">
+    <view class="newOption" hover-class="none" hover-stop-propagation="false">
+        <view class="close" hover-class="none" hover-stop-propagation="false">
+            <image src="../../images/close.svg" bindtap="close"></image>
+        </view>
+        <input type="text" placeholder="请输入新增选项(7个字以内)" bindchange="setNewOption" maxlength="7"></input>
+        <button size="default" type="primary" bindtap="confirm">
+            <text>确定</text>
+        </button>
+    </view>
 </view>

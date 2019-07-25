@@ -156,6 +156,12 @@ Page({
         n = n.toString()
         return n[1] ? n : '0' + n
     },
+    close(){
+        this.setData({
+            ifAdd: false,
+            newOption: ''
+        })
+    },
     onShareAppMessage() {
         return {
             title: '选择困难症?试试这个吧',
