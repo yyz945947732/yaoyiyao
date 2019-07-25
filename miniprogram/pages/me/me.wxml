@@ -1,9 +1,9 @@
 <!-- pages/me/me.wxml -->
 <view class="head" hover-class="none" hover-stop-propagation="false">
-    <view class="headBox" hover-class="none" hover-stop-propagation="false">
-        <image src="{{userHead}}"></image>
-        <text selectable="false" space="false" decode="false">{{userName}}</text>
-    </view>
+  <view class="headBox" hover-class="none" hover-stop-propagation="false">
+    <image src="{{userHead}}"></image>
+    <text selectable="false" space="false" decode="false">{{userName}}</text>
+  </view>
 </view>
 <view class="bodyList">
   <navigator class="bodyItem" url="./myOption/myOption">
@@ -14,6 +14,11 @@
   <navigator class="bodyItem" url="./myRecord/myRecord">
     <image src="../../images/jilu.svg"></image>
     <text>我的记录</text>
+    <image src="../../images/right.svg" class="right"></image>
+  </navigator>
+  <navigator class="bodyItem" open-type="exit" target="miniProgram">
+    <image src="../../images/exit.svg"></image>
+    <text>退出程序</text>
     <image src="../../images/right.svg" class="right"></image>
   </navigator>
 </view>

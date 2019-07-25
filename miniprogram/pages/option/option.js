@@ -7,7 +7,7 @@ Page({
         newOption: ''
     },
 
-    onLoad() {
+    onShow() {
         this.getOptions()
     },
     getOptions() {
@@ -33,6 +33,13 @@ Page({
         })
     },
     confirm() {
+        if (!this.data.newOption) {
+            wx.showToast({
+                title: '新选项不能为空',
+                icon: 'none'
+            })
+            return
+        }
         let options = this.data.options;
         options.push(this.data.newOption)
         this.setData({
