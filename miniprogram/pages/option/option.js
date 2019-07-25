@@ -39,7 +39,7 @@ Page({
             cancelText: '算了',
             confirmText: '确定!',
             confirmColor: '#3CC51F',
-            success: (result) => {
+            success: result => {
                 if (result.confirm) {
                     this.setData({
                         options: []
