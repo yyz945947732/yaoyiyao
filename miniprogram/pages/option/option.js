@@ -155,5 +155,12 @@ Page({
     formatNumber(n) {
         n = n.toString()
         return n[1] ? n : '0' + n
+    },
+    onShareAppMessage() {
+        return {
+            title: '选择困难症?试试这个吧',
+            path: '/pages/index/index',
+            imageUrl: '../../images/xx.png'
+        }
     }
 })

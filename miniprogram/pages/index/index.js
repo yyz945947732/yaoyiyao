@@ -193,6 +193,20 @@ Page({
     },
     onUnload() {
         this.clean()
+    },
+    onShareAppMessage() {
+        if (this.data.over) {
+            return {
+                title: '我抽中了' + this.data.options[this.data.answer] + ',你也来试试吧',
+                path: '/pages/index/index'
+            }
+        } else {
+            return {
+                title: '选择困难症?试试这个吧',
+                path: '/pages/index/index',
+                imageUrl: '../../images/xx.png'
+            }
+        }
     }
 
 })

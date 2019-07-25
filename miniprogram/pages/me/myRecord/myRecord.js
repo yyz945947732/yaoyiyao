@@ -64,5 +64,12 @@ Page({
             loadOver: false
         })
         this.getRecord()
+    },
+    onShareAppMessage() {
+        return {
+            title: '选择困难症?试试这个吧',
+            path: '/pages/index/index',
+            imageUrl: '../../../images/xx.png'
+        }
     }
 })
