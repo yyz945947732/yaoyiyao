@@ -32,6 +32,22 @@ Page({
             ifAdd: true
         })
     },
+    clearAllOptions() {
+        wx.showModal({
+            title: '清空提示',
+            content: '确定清空所有的选项吗',
+            cancelText: '算了',
+            confirmText: '确定!',
+            confirmColor: '#3CC51F',
+            success: (result) => {
+                if (result.confirm) {
+                    this.setData({
+                        options: []
+                    })
+                }
+            }
+        });
+    },
     confirm() {
         if (!this.data.newOption) {
             wx.showToast({

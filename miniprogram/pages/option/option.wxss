@@ -13,8 +13,15 @@
     width: 100%;
     background: #fff;
     box-sizing: border-box;
-    padding-left: 20rpx;
+    padding: 0 50rpx 0 20rpx;
     margin-bottom: 50rpx;
+    justify-content: space-between;
+}
+
+.body .title .left {
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .body .title image {
@@ -27,6 +34,12 @@
     color: #66CDAA;
     font-weight: bold;
     margin-left: 6rpx;
+}
+
+.body .title .remove {
+    color: #F56C6C;
+    font-size: 24rpx;
+    font-weight: normal;
 }
 
 .list {
@@ -84,6 +97,11 @@
 .list .item .remove text {
     color: #F56C6C;
     font-size: 24rpx;
+}
+
+.list .item .remove image {
+    width: 45rpx;
+    height: 45rpx;
 }
 
 .body .add {

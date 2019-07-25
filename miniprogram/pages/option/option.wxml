@@ -1,8 +1,11 @@
 <!-- pages/option/option.wxml -->
 <view class="body" hover-class="none" hover-stop-propagation="false">
     <view class="title" hover-class="none" hover-stop-propagation="false">
-        <image src="../../images/xuanxiang.svg"></image>
-        <text selectable="false" space="false" decode="false">我的选项</text>
+        <view class="left" hover-class="none" hover-stop-propagation="false">
+            <image src="../../images/xuanxiang.svg"></image>
+            <text selectable="false" space="false" decode="false">我的选项</text>
+        </view>
+        <text class="remove" bindtap="clearAllOptions">清空</text>
     </view>
     <view class="list" hover-class="none" hover-stop-propagation="false">
         <block wx:if="{{options.length}}">
@@ -13,8 +16,8 @@
                 <view class="content" hover-class="none" hover-stop-propagation="false">
                     <text>{{item}}</text>
                 </view>
-                <view class="remove" hover-class="none" hover-stop-propagation="false" bindtap="remove" data-i="{{index}}">
-                    <text>移除</text>
+                <view class="remove" hover-class="none" hover-stop-propagation="false">
+                    <image src="../../images/remove.svg" bindtap="remove" data-i="{{index}}"></image>
                 </view>
             </view>
         </block>
@@ -36,6 +39,6 @@
         </button>
     </view>
     <button class="save" bindtap="save">
-        <text>保存选项</text>
+        <text>保存</text>
     </button>
 </view>
