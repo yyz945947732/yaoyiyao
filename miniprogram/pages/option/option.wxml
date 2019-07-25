@@ -36,6 +36,9 @@
         <image src="../../images/add.svg"></image>
         <text selectable="false" space="false" decode="false">添加一项</text>
     </view>
+    <view class="tip" hover-class="none" hover-stop-propagation="false">
+        <text selectable="false" space="false" decode="false">操作完记得保存哦~</text>
+    </view>
     <button class="save" bindtap="save">
         <text>保存</text>
     </button>
