@@ -50,6 +50,9 @@ Page({
             data: { openid: app.globalData.openid }
         }).then(() => {
             wx.hideLoading()
+            this.setData({
+                records: []
+            })
             this.getRecord()
         }).catch(() => {
             wx.hideLoading()
