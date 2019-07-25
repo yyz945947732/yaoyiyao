@@ -16,6 +16,11 @@
     <text>我的记录</text>
     <image src="../../images/right.svg" class="right"></image>
   </navigator>
+  <button class="bodyItem" open-type="contact">
+    <image src="../../images/kefu.svg"></image>
+    <text>在线客服</text>
+    <image src="../../images/right.svg" class="right"></image>
+  </button>
   <navigator class="bodyItem" open-type="exit" target="miniProgram">
     <image src="../../images/exit.svg"></image>
     <text>退出程序</text>
