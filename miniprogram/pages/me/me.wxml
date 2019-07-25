@@ -2,7 +2,11 @@
 <view class="head" hover-class="none" hover-stop-propagation="false">
   <view class="headBox" hover-class="none" hover-stop-propagation="false">
     <image src="{{userHead}}"></image>
-    <text selectable="false" space="false" decode="false">{{userName}}</text>
+    <view class="bottom" hover-class="none" hover-stop-propagation="false">
+      <text selectable="false" space="false" decode="false">{{userName}}</text>
+      <image src="../../images/boy.svg" wx:if="{{gender==0}}"></image>
+      <image src="../../images/girl.svg" wx:if="{{gender==1}}"></image>
+    </view>
   </view>
 </view>
 <view class="bodyList">
@@ -30,5 +34,5 @@
   </navigator>
 </view>
 <view class="version" hover-class="none" hover-stop-propagation="false">
-  <text selectable="false" space="false" decode="false">当前版本号 1.0.2</text>
+  <text selectable="false" space="false" decode="false">当前版本号 1.0.3</text>
 </view>

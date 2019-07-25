@@ -11,7 +11,7 @@
 }
 
 .head .headBox {
-    width: 200rpx;
+    min-width: 200rpx;
     height: 220rpx;
     display: flex;
     flex-direction: column;
@@ -25,8 +25,21 @@
     border-radius: 50%;
 }
 
-.head .headBox text {
+.head .headBox .bottom{
+    height:60rpx;
+    display: flex;
+    min-width:80rpx;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.head .headBox .bottom text {
     font-size: 26rpx;
+}
+
+.head .headBox .bottom image {
+    width:30rpx;
+    height:30rpx;
 }
 
 .bodyItem {

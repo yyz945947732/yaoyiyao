@@ -14,7 +14,8 @@ Page({
     getUserHead() {
         this.setData({
             userHead: app.globalData.userInfo.avatarUrl,
-            userName: app.globalData.userInfo.nickName
+            userName: app.globalData.userInfo.nickName,
+            gender: app.globalData.userInfo.gender
         })
     },
     onShareAppMessage() {
