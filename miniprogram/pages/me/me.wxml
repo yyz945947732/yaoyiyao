@@ -22,3 +22,6 @@
     <image src="../../images/right.svg" class="right"></image>
   </navigator>
 </view>
+<view class="version" hover-class="none" hover-stop-propagation="false">
+  <text selectable="false" space="false" decode="false">当前版本号 1.0.2</text>
+</view>
