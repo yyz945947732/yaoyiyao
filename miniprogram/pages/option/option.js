@@ -51,15 +51,11 @@ Page({
         });
     },
     confirm() {
-        if (!this.data.newOption) {
-            wx.showToast({
-                title: '新选项不能为空',
-                icon: 'none'
-            })
+        if (!this.checkOption()) {
             return
         }
         let options = this.data.options;
-        options.push(this.data.newOption)
+        options.push(this.data.newOption);
         this.setData({
             ifAdd: false,
             options,
@@ -68,6 +64,23 @@ Page({
         wx.pageScrollTo({
             scrollTop: 1000
         })
+    },
+    checkOption() {
+        if (!this.data.newOption) {
+            wx.showToast({
+                title: '新选项不能为空',
+                icon: 'none'
+            })
+            return
+        } else if (this.data.options.some(item => item == this.data.newOption)) {
+            wx.showToast({
+                title: '选项已存在,不能重复添加',
+                icon: 'none'
+            })
+            return
+        }else{
+            return true
+        }
     },
     setNewOption(e) {
         this.setData({
