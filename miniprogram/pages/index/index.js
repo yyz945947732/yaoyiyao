@@ -177,6 +177,7 @@ Page({
         db.collection('yyy_record').add({
             data: {
                 answer: this.data.options[this.data.answer].name,
+                answerImg: this.data.options[this.data.answer].imgSrc,
                 options: this.data.options,
                 create_date: this.formatTime(new Date),
                 total: this.data.options.length,

@@ -85,8 +85,14 @@
     color: #909399;
     font-size: 32rpx;
     letter-spacing: 2rpx;
-    padding-left: 38rpx;
+    padding:0 38rpx;
     box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.body .list .item image{
+    height:120rpx;
+    width:120rpx;
 }
 
 .body .list .item .num {

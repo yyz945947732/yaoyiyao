@@ -14,10 +14,13 @@
                 <text>{{item.create_date}}</text>
             </view>
             <view class="content" hover-class="none" hover-stop-propagation="false">
-                <text>你从</text>
-                <text class="num">{{item.total}}</text>
-                <text>个选项中摇中了</text>
-                <text class="choosed">{{item.answer}}</text>
+                <view hover-class="none" hover-stop-propagation="false">
+                    <text>你从</text>
+                    <text class="num">{{item.total}}</text>
+                    <text>个选项中摇中了</text>
+                    <text class="choosed">{{item.answer}}</text>
+                </view>
+                <image src="{{item.answerImg}}"></image>
             </view>
         </view>
         <text wx:if="{{loadOver}}" class="loadOver">加载完了~</text>

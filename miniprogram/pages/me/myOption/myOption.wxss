@@ -41,7 +41,7 @@
     height: 100rpx;
     background: #fff;
     box-sizing: border-box;
-    padding-left: 20rpx;
+    padding:0 20rpx;
 }
 
 .list .item .index {
