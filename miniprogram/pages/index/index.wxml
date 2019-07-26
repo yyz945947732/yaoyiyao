@@ -9,7 +9,10 @@
   <view class="list" hover-class="none" hover-stop-propagation="false">
     <block wx:if="{{options.length}}">
       <view class="item" hover-class="none" hover-stop-propagation="false" wx:for="{{options}}" wx:key="{{item}}">
-        <text selectable="false" space="false" decode="false">{{item.name}}</text>
+        <image src="{{item.imgSrc}}"></image>
+        <view class="item-cover" hover-class="none" hover-stop-propagation="false">
+          <text selectable="false" space="false" decode="false">{{item.name}}</text>
+        </view>
       </view>
     </block>
     <block wx:else>
@@ -34,6 +37,7 @@
 </view>
 <view class="body" hover-class="none" hover-stop-propagation="false" wx:if="{{over}}">
   <view class="answer-body" hover-class="none" hover-stop-propagation="false">
+    <image src="{{options[answer].imgSrc}}"></image>
     <text selectable="false" space="false" decode="false">你摇到了</text>
     <text selectable="false" space="false" decode="false">{{options[answer].name}}</text>
   </view>

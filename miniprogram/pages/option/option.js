@@ -10,7 +10,7 @@ Page({
     },
 
     onShow() {
-        this.getOptions()
+        !this.data.newOption.hasOwnProperty('name') ? this.getOptions() : ''
     },
     getOptions() {
         wx.showLoading({
@@ -55,13 +55,17 @@ Page({
         if (!this.checkOption()) {
             return
         }
-        let options = this.data.options;
-        options.push(this.data.newOption);
+        let options = this.data.options,
+            newOption = Object.assign({}, this.data.newOption);
+        options.push(newOption);
         this.setData({
             ifAdd: false,
-            options,
-            newOption: {},
-            bigImg:'../../images/images.svg'
+            options
+        }, () => {
+            this.setData({
+                newOption: {},
+                bigImg: '../../images/images.svg'
+            })
         })
         wx.pageScrollTo({
             scrollTop: 1000
@@ -85,12 +89,9 @@ Page({
         }
     },
     setNewOption(e) {
-        let newOption = {
-            name: e.detail.value,
-            imgSrc: '../../images/xx.png'
-        }
+        this.data.newOption.name = e.detail.value
         this.setData({
-            newOption
+            newOption: this.data.newOption
         })
     },
     remove(e) {
@@ -179,7 +180,7 @@ Page({
             ifAdd: false,
             focus: false,
             newOption: {},
-            bigImg:'../../images/images.svg'
+            bigImg: '../../images/images.svg'
         })
     },
     changeBigImg() {
@@ -197,10 +198,11 @@ Page({
                     cloudPath,
                     filePath,
                     success: res => {
-                        this.data.newOption.imgSrc = res.fileID
+                        let newOption = Object.assign({}, this.data.newOption)
+                        newOption.imgSrc = res.fileID
                         this.setData({
                             bigImg: res.fileID,
-                            newOption: this.data.newOption
+                            newOption
                         });
                         wx.showToast({
                             title: '上传成功',

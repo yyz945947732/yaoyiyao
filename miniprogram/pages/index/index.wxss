@@ -60,13 +60,30 @@ page {
     width: 160rpx;
     height: 160rpx;
     border-radius: 10rpx;
-    background: #a3cfa9;
     margin: 24rpx 0;
+    display: flex;
+    box-sizing: border-box;
+    padding: 10rpx;
+    justify-content: center;
+    align-items: center;
+}
+
+.body .list .item image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 0;
+}
+
+.body .list .item .item-cover {
+    border-radius: 10rpx;
+    width: 150rpx;
+    height: 150rpx;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
-    padding: 10rpx;
 }
 
 .body .list .item text {
@@ -123,7 +140,7 @@ page {
 
 .body .answer-body {
     width: 100%;
-    height: 180rpx;
+    height: 460rpx;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -131,7 +148,12 @@ page {
     flex-direction: column;
 }
 
-.body .answer-body text:first-child {
+.body .answer-body image {
+    width: 260rpx;
+    height: 260rpx;
+}
+
+.body .answer-body text:nth-child(2) {
     color: #000;
     font-size: 50rpx;
     letter-spacing: 2rpx;
@@ -163,7 +185,7 @@ page {
     height: 280rpx;
 }
 
-.navText{
-    color:#66CDAA !important;
+.navText {
+    color: #66CDAA !important;
     text-decoration: underline;
 }
