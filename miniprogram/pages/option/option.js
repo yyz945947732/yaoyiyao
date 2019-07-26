@@ -78,7 +78,7 @@ Page({
                 icon: 'none'
             })
             return
-        }else{
+        } else {
             return true
         }
     },
@@ -139,14 +139,8 @@ Page({
     },
     success() {
         wx.hideLoading();
-        wx.switchTab({
-            url: '/pages/index/index',
-            success: () => {
-                wx.showToast({
-                    title: '保存成功',
-                    icon: 'success'
-                });
-            }
+        wx.navigateTo({
+            url: '/pages/option/success/success'
         });
     },
     ifAddBefore() {

@@ -1,0 +1,49 @@
+page{
+    background: #fff !important;
+}
+.successBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+.successBox icon {
+    margin: 120rpx 0 20rpx 0;
+}
+
+.successBox text {
+    margin: 20rpx 0 40rpx 0;
+    font-size: 42rpx;
+}
+
+.successBox button {
+    width: 92%;
+    height: 100rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20rpx;
+    margin: 30rpx 0 20rpx 0;
+}
+
+.successBox button:last-child {
+    background: #dbdbdb;
+    margin: 10rpx 0;
+}
+
+.other {
+    background: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 300rpx;
+}
+
+.other navigator{
+    font-size: 30rpx;
+    color:#576b95;
+}

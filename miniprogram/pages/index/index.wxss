@@ -106,7 +106,6 @@ page {
 .body .num text {
     font-size: 480rpx;
     font-weight: bolder;
-    color: #F56C6C;
 }
 
 .body .answer {

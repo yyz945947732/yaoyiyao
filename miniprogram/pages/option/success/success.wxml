@@ -1,0 +1,11 @@
+<view class="successBox" hover-class="none" hover-stop-propagation="false">
+    <icon type="success" size="120"></icon>
+    <text selectable="false" space="false" decode="false">保存成功</text>
+    <button size="default" type="primary" bindtap="toIndex">摇一下</button>
+    <button size="default" type="default" bindtap="toList">回到列表</button>
+    <view class="other" hover-class="none" hover-stop-propagation="false">
+        <navigator url="/pages/me/myOption/myOption" hover-class="none" open-type="redirect">
+            查看我的选项
+        </navigator>
+    </view>
+</view>

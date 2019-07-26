@@ -2,6 +2,7 @@
     "pages": [
         "pages/index/index",
         "pages/option/option",
+        "pages/option/success/success",
         "pages/me/me",
         "pages/me/myOption/myOption",
         "pages/me/myRecord/myRecord"
