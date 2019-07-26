@@ -10,7 +10,7 @@ Page({
         answer: 0,
         runMode: false,
         over: false,
-        textColor:['#fd400a','#fe5323','#fa6338','#fe734b','#fa7f5c','#fd8f70'],
+        textColor: ['#fd400a', '#fe5323', '#fa6338', '#fe734b', '#fa7f5c', '#fd8f70'],
         animationData: {}
     },
     onShow() {
@@ -36,11 +36,26 @@ Page({
                             app.globalData.userInfo = res.userInfo
                         }
                     })
+                } else {
+                    this.toLogin();
                 }
+            },
+            fail: () => {
+                this.toLogin();
             }
         })
     },
-
+    toLogin() {
+        wx.showModal({
+            title: '警告',
+            content: '尚未进行授权,请点击确定跳转到授权页面进行授权',
+            success: res => {
+                res.confirm ? wx.navigateTo({
+                    url: '/pages/index/login/login'
+                }) : ''
+            }
+        })
+    },
     getOptions() {
         if (!app.globalData.openid) {
             return
