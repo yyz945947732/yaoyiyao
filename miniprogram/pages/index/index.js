@@ -10,6 +10,7 @@ Page({
         answer: 0,
         runMode: false,
         over: false,
+        textColor:['#fd400a','#fe5323','#fa6338','#fe734b','#fa7f5c','#fd8f70'],
         animationData: {}
     },
     onShow() {
