@@ -184,7 +184,7 @@ Page({
     },
 
     back() {
-        if (this.data.runId && this.data.answerRunId && this.data.num < 5) {
+        if (this.data.runId && this.data.answerRunId && this.data.rotateBell && this.data.num < 5) {
             this.clean()
         } else {
             return
