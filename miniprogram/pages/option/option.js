@@ -60,7 +60,8 @@ Page({
         this.setData({
             ifAdd: false,
             options,
-            newOption: {}
+            newOption: {},
+            bigImg:'../../images/images.svg'
         })
         wx.pageScrollTo({
             scrollTop: 1000
@@ -177,7 +178,8 @@ Page({
         this.setData({
             ifAdd: false,
             focus: false,
-            newOption: {}
+            newOption: {},
+            bigImg:'../../images/images.svg'
         })
     },
     changeBigImg() {
