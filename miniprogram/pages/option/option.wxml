@@ -14,7 +14,7 @@
                     <text>{{index+1}}</text>
                 </view>
                 <view class="content" hover-class="none" hover-stop-propagation="false">
-                    <text>{{item}}</text>
+                    <text>{{item.name}}</text>
                 </view>
                 <view class="remove" hover-class="none" hover-stop-propagation="false">
                     <image src="../../images/remove.svg" bindtap="remove" data-i="{{index}}"></image>
@@ -48,8 +48,10 @@
         <view class="close" hover-class="none" hover-stop-propagation="false">
             <image src="../../images/close.svg" bindtap="close"></image>
         </view>
-        <input type="text" placeholder="请输入新增选项(7个字以内)" bindchange="setNewOption" maxlength="7"
-        focus="{{focus}}"></input>
+        <input type="text" placeholder="请输入新增选项(7个字以内)" bindchange="setNewOption" maxlength="7" focus="{{focus}}"></input>
+        <view class="addImageBox" hover-class="none" hover-stop-propagation="false">
+             <image src="{{bigImg}}" bindtap="changeBigImg"></image>
+        </view>
         <button size="default" type="primary" bindtap="confirm">
             <text>确定</text>
         </button>

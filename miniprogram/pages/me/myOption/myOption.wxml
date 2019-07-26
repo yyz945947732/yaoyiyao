@@ -10,7 +10,7 @@
                 <text>{{index+1}}</text>
             </view>
             <view class="content" hover-class="none" hover-stop-propagation="false">
-                <text>{{item}}</text>
+                <text>{{item.name}}</text>
             </view>
         </view>
         <text wx:if="{{!records.length}}" class="noOption">暂无选项</text>

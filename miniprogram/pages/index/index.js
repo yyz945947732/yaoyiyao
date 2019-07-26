@@ -161,7 +161,7 @@ Page({
         })
         db.collection('yyy_record').add({
             data: {
-                answer: this.data.options[this.data.answer],
+                answer: this.data.options[this.data.answer].name,
                 options: this.data.options,
                 create_date: this.formatTime(new Date),
                 total: this.data.options.length,
@@ -230,7 +230,7 @@ Page({
     onShareAppMessage() {
         if (this.data.over) {
             return {
-                title: '我摇中了' + this.data.options[this.data.answer] + ',你也来试试吧',
+                title: '我摇中了' + this.data.options[this.data.answer].name + ',你也来试试吧',
                 path: '/pages/index/index'
             }
         } else {

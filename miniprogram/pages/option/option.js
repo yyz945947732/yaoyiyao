@@ -5,7 +5,8 @@ Page({
         options: [],
         ifAdd: false,
         focus: false,
-        newOption: ''
+        newOption: {},
+        bigImg: '../../images/images.svg'
     },
 
     onShow() {
@@ -59,7 +60,7 @@ Page({
         this.setData({
             ifAdd: false,
             options,
-            newOption: ''
+            newOption: {}
         })
         wx.pageScrollTo({
             scrollTop: 1000
@@ -72,7 +73,7 @@ Page({
                 icon: 'none'
             })
             return
-        } else if (this.data.options.some(item => item == this.data.newOption)) {
+        } else if (this.data.options.some(item => item.name == this.data.newOption.name)) {
             wx.showToast({
                 title: '选项已存在,不能重复添加',
                 icon: 'none'
@@ -83,8 +84,12 @@ Page({
         }
     },
     setNewOption(e) {
+        let newOption = {
+            name: e.detail.value,
+            imgSrc: '../../images/xx.png'
+        }
         this.setData({
-            newOption: e.detail.value
+            newOption
         })
     },
     remove(e) {
@@ -172,7 +177,42 @@ Page({
         this.setData({
             ifAdd: false,
             focus: false,
-            newOption: ''
+            newOption: {}
+        })
+    },
+    changeBigImg() {
+        wx.chooseImage({
+            sizeType: ['original', 'compressed'],
+            sourceType: ['album', 'camera'],
+            success: res => {
+                wx.showLoading({
+                    title: '上传中',
+                });
+                let filePath = res.tempFilePaths[0],
+                    name = Math.random() * 1000000,
+                    cloudPath = name + filePath.match(/\.[^.]+?$/)[0]
+                wx.cloud.uploadFile({
+                    cloudPath,
+                    filePath,
+                    success: res => {
+                        this.data.newOption.imgSrc = res.fileID
+                        this.setData({
+                            bigImg: res.fileID,
+                            newOption: this.data.newOption
+                        });
+                        wx.showToast({
+                            title: '上传成功',
+                            icon: 'success'
+                        })
+                    },
+                    fail: () => {
+                        wx.showToast({
+                            title: '上传失败',
+                            icon: 'none'
+                        })
+                    }
+                });
+            }
         })
     },
     onShareAppMessage() {

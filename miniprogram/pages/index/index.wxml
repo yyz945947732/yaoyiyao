@@ -9,7 +9,7 @@
   <view class="list" hover-class="none" hover-stop-propagation="false">
     <block wx:if="{{options.length}}">
       <view class="item" hover-class="none" hover-stop-propagation="false" wx:for="{{options}}" wx:key="{{item}}">
-        <text selectable="false" space="false" decode="false">{{item}}</text>
+        <text selectable="false" space="false" decode="false">{{item.name}}</text>
       </view>
     </block>
     <block wx:else>
@@ -29,13 +29,13 @@
     <text selectable="false" space="false" decode="false" style="color:{{textColor[num]}}">{{num}}</text>
   </view>
   <view class="answer" hover-class="none" hover-stop-propagation="false">
-    <text selectable="false" space="false" decode="false">{{options[answer]}}</text>
+    <text selectable="false" space="false" decode="false">{{options[answer].name}}</text>
   </view>
 </view>
 <view class="body" hover-class="none" hover-stop-propagation="false" wx:if="{{over}}">
   <view class="answer-body" hover-class="none" hover-stop-propagation="false">
     <text selectable="false" space="false" decode="false">你摇到了</text>
-    <text selectable="false" space="false" decode="false">{{options[answer]}}</text>
+    <text selectable="false" space="false" decode="false">{{options[answer].name}}</text>
   </view>
 </view>
 <button class="run" size="default" bindtap="run" wx:if="{{!runMode&&!over&&logged}}">
