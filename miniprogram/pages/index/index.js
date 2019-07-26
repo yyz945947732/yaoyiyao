@@ -103,22 +103,27 @@ Page({
             return
         }
         this.setData({
-                runMode: true,
-                over: false,
-                answer: 0,
-                num: 5
-            })
-            // this.routeBell();
+            runMode: true,
+            over: false,
+            answer: 0,
+            num: 5
+        })
+        this.routeBell();
         this.beginCount();
     },
     routeBell() {
         let animation = wx.createAnimation({
-            duration: 100
-        });
-        animation.rotate(45).step().rotate(-45).step().rotate(0).step()
-        this.setData({
-            animationData: animation.export()
-        })
+                duration: 100
+            }),
+            rotateBell = setInterval(() => {
+                if (this.data.num == 0) {
+                    clearInterval(rotateBell)
+                }
+                animation.rotate(45).step().rotate(-45).step().rotate(0).step()
+                this.setData({
+                    animationData: animation.export()
+                })
+            }, 100)
     },
     beginCount() {
         let runId = setInterval(() => {
@@ -138,7 +143,6 @@ Page({
                         clearInterval(answerRunId)
                     }, 1000)
                 } else {
-                    this.routeBell();
                     this.setData({
                         answerRunId,
                         answer: this.getRandom()
