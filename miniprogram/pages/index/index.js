@@ -9,7 +9,8 @@ Page({
         num: 5,
         answer: 0,
         runMode: false,
-        over: false
+        over: false,
+        animationData: {}
     },
     onShow() {
         app.globalData.openid ? this.getOptions() : ''
@@ -102,14 +103,23 @@ Page({
             return
         }
         this.setData({
-            runMode: true,
-            over: false,
-            answer: 0,
-            num: 5
-        })
+                runMode: true,
+                over: false,
+                answer: 0,
+                num: 5
+            })
+            // this.routeBell();
         this.beginCount();
     },
-
+    routeBell() {
+        let animation = wx.createAnimation({
+            duration: 100
+        });
+        animation.rotate(45).step().rotate(-45).step().rotate(0).step()
+        this.setData({
+            animationData: animation.export()
+        })
+    },
     beginCount() {
         let runId = setInterval(() => {
                 if (this.data.num == 0) {
@@ -128,6 +138,7 @@ Page({
                         clearInterval(answerRunId)
                     }, 1000)
                 } else {
+                    this.routeBell();
                     this.setData({
                         answerRunId,
                         answer: this.getRandom()
