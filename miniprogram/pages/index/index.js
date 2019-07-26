@@ -121,7 +121,8 @@ Page({
                 }
                 animation.rotate(45).step().rotate(-45).step().rotate(0).step()
                 this.setData({
-                    animationData: animation.export()
+                    animationData: animation.export(),
+                    rotateBell
                 })
             }, 100)
     },
@@ -205,6 +206,7 @@ Page({
     clean() {
         clearInterval(this.data.runId);
         clearInterval(this.data.answerRunId);
+        clearInterval(this.data.rotateBell);
         this.setData({
             runMode: false,
             over: false,
