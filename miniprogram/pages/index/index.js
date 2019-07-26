@@ -171,6 +171,7 @@ Page({
                 runMode: false,
                 over: true
             })
+            wx.vibrateLong()
             wx.hideLoading()
         }).catch(() => {
             wx.hideLoading()
