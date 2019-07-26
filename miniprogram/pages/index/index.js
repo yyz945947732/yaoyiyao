@@ -228,7 +228,7 @@ Page({
     onShareAppMessage() {
         if (this.data.over) {
             return {
-                title: '我抽中了' + this.data.options[this.data.answer] + ',你也来试试吧',
+                title: '我摇中了' + this.data.options[this.data.answer] + ',你也来试试吧',
                 path: '/pages/index/index'
             }
         } else {
