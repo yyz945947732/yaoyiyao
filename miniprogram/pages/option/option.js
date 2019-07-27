@@ -6,9 +6,19 @@ Page({
         ifAdd: false,
         focus: false,
         newOption: {},
+        defaultImgSrc: '../../images/xx.png',
         bigImg: '../../images/images.svg'
     },
-
+    onLoad() {
+        this.getDefault()
+    },
+    getDefault() {
+        db.collection('yyy_default').limit(1).get().then(res => {
+            this.setData({
+                defaultImgSrc: res.data[0].defaultImgSrc
+            })
+        })
+    },
     onShow() {
         !this.data.newOption.hasOwnProperty('name') ? this.getOptions() : ''
     },
@@ -90,7 +100,7 @@ Page({
     },
     setNewOption(e) {
         this.data.newOption.name = e.detail.value;
-        !this.data.newOption.imgSrc ? this.data.newOption.imgSrc = '../../images/xx.png' : ''
+        !this.data.newOption.imgSrc ? this.data.newOption.imgSrc = this.data.defaultImgSrc : ''
         this.setData({
             newOption: this.data.newOption
         })
