@@ -23,7 +23,7 @@
 </view>
 <view class="bodyList">
   <navigator class="bodyItem">
-    <image src="../../images/import.svg"></image>
+    <image src="../../images/importS.svg"></image>
     <text>导入选项</text>
     <image src="../../images/right.svg" class="right"></image>
   </navigator>

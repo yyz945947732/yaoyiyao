@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-bottom: 160rpx;
 }
 
 .body .title {
@@ -33,6 +34,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    height: 850rpx;
 }
 
 .list .item {
@@ -41,7 +43,20 @@
     height: 100rpx;
     background: #fff;
     box-sizing: border-box;
-    padding:0 20rpx;
+    padding: 0 20rpx;
+    justify-content: space-between;
+}
+
+.list .item .left {
+    display: flex;
+    height: 100rpx;
+    width: 500rpx;
+    align-items: center;
+}
+
+.list .item image {
+    width: 100rpx;
+    height: 100rpx;
 }
 
 .list .item .index {
@@ -77,4 +92,35 @@
     color: #cdcdcd;
     font-weight: bold;
     font-size: 40rpx;
+}
+
+.tail {
+    width: 100%;
+    height: 120rpx;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #fff;
+}
+
+.tail button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46%;
+    height: 90rpx;
+    background: #66CDAA;
+}
+
+.tail button image {
+    width: 36rpx;
+    height: 36rpx;
+}
+
+.tail button text {
+    font-size: 36rpx;
+    margin-left: 20rpx;
 }

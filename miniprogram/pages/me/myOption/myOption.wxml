@@ -1,18 +1,31 @@
 <!-- pages/me/myOption/myOption.wxml -->
-<view class="body" hover-class="none" hover-stop-propagation="false">
+<view class="body" scroll-y="true" upper-threshold="50" lower-threshold="50" scroll-top="0">
     <view class="title" hover-class="none" hover-stop-propagation="false">
         <image src="../../../images/xuanxiang.svg"></image>
         <text selectable="false" space="false" decode="false">我的选项</text>
     </view>
-    <view class="list" hover-class="none" hover-stop-propagation="false">
+    <scroll-view class="list" scroll-y="true" upper-threshold="50" lower-threshold="50" scroll-top="0">
         <view class="item" hover-class="none" hover-stop-propagation="false" wx:for="{{options}}" wx:key="{{index}}">
-            <view class="index" hover-class="none" hover-stop-propagation="false">
-                <text>{{index+1}}</text>
+            <view class="left">
+                <view class="index" hover-class="none" hover-stop-propagation="false">
+                    <text>{{index+1}}</text>
+                </view>
+                <view class="content" hover-class="none" hover-stop-propagation="false">
+                    <text>{{item.name}}</text>
+                </view>
             </view>
-            <view class="content" hover-class="none" hover-stop-propagation="false">
-                <text>{{item.name}}</text>
-            </view>
+            <image src="{{item.imgSrc}}"></image>
         </view>
-        <text wx:if="{{!records.length}}" class="noOption">暂无选项</text>
-    </view>
+        <text wx:if="{{!options.length}}" class="noOption">暂无选项</text>
+    </scroll-view>
+</view>
+<view class="tail" hover-class="none" hover-stop-propagation="false">
+    <button class="default" size="default" type="primary">
+        <image src="../../../images/import.svg"></image>
+        <text selectable="false" space="false" decode="false">导入选项</text>
+    </button>
+    <button class="default" size="default" type="primary">
+        <image src="../../../images/export.svg"></image>
+        <text selectable="false" space="false" decode="false">导出选项</text>
+    </button>
 </view>

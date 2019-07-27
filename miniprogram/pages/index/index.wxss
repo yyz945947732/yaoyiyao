@@ -52,8 +52,8 @@ page {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding-top: 20rpx;
     box-sizing: border-box;
+    height: 560rpx;
 }
 
 .body .list .item {
