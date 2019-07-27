@@ -89,7 +89,8 @@ Page({
         }
     },
     setNewOption(e) {
-        this.data.newOption.name = e.detail.value
+        this.data.newOption.name = e.detail.value;
+        !this.data.newOption.imgSrc ? this.data.newOption.imgSrc = '../../images/xx.png' : ''
         this.setData({
             newOption: this.data.newOption
         })
