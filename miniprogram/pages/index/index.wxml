@@ -31,9 +31,7 @@
 </view>
 <view class="body" hover-class="none" hover-stop-propagation="false" wx:if="{{runMode&&!over}}">
   <view class="num" hover-class="none" hover-stop-propagation="false">
-    <text selectable="false" space="false" decode="false" style="color:{{textColor[num]}}">
-      {{num}}
-    </text>
+    <text selectable="false" space="false" decode="false" style="color:{{textColor[num]}}">{{num}}</text>
   </view>
   <view class="answer" hover-class="none" hover-stop-propagation="false">
     <text selectable="false" space="false" decode="false">{{options[answer].name}}</text>
