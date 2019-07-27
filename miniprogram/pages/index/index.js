@@ -143,9 +143,18 @@ Page({
             }, 100)
     },
     beginCount() {
-        let runId = setInterval(() => {
+        let answerRunId = setInterval(() => {
+                if (this.data.num) {
+                    this.setData({
+                        answerRunId,
+                        answer: this.getRandom()
+                    })
+                }
+            }, 200),
+            runId = setInterval(() => {
                 if (this.data.num == 0) {
                     clearInterval(runId)
+                    clearInterval(answerRunId)
                     this.writeRecord()
                 } else {
                     this.setData({
@@ -153,19 +162,7 @@ Page({
                         num: this.data.num - 1
                     })
                 }
-            }, 1000),
-            answerRunId = setInterval(() => {
-                if (this.data.num == 0) {
-                    setTimeout(() => {
-                        clearInterval(answerRunId)
-                    }, 1000)
-                } else {
-                    this.setData({
-                        answerRunId,
-                        answer: this.getRandom()
-                    })
-                }
-            }, 200)
+            }, 1000)
 
     },
 
