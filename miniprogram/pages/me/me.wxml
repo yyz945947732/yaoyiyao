@@ -22,6 +22,11 @@
   </navigator>
 </view>
 <view class="bodyList">
+  <navigator class="bodyItem">
+    <image src="../../images/import.svg"></image>
+    <text>导入选项</text>
+    <image src="../../images/right.svg" class="right"></image>
+  </navigator>
   <button class="bodyItem" open-type="contact">
     <image src="../../images/kefu.svg"></image>
     <text>在线客服</text>

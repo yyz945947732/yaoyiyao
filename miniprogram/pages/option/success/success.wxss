@@ -1,6 +1,7 @@
-page{
+page {
     background: #fff !important;
 }
+
 .successBox {
     display: flex;
     flex-direction: column;
@@ -30,7 +31,8 @@ page{
 }
 
 .successBox button:last-child {
-    background: #dbdbdb;
+    background: #ededed;
+    color: #888888;
     margin: 10rpx 0;
 }
 
@@ -43,7 +45,7 @@ page{
     margin-top: 300rpx;
 }
 
-.other navigator{
+.other navigator {
     font-size: 30rpx;
-    color:#576b95;
+    color: #576b95;
 }
