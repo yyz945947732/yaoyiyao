@@ -91,7 +91,7 @@ Page({
       }
     }).then(() => {
       wx.hideLoading()
-      wx.navigateTo({
+      wx.navigateTo({ 
         url: '/pages/me/myOption/export/success/success'
       });
     }).catch(() => {

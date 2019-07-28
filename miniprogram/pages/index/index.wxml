@@ -4,9 +4,12 @@
 </view>
 <view class="body" wx:if="{{!runMode&&!over}}">
   <view class="title" hover-class="none" hover-stop-propagation="false">
-    <text selectable="false" space="false" decode="false">我的选项</text>
+    <text selectable="false" space="false" decode="false" wx:if="{{optionBox}}">我的选项</text>
+    <text selectable="false" space="false" decode="false" wx:if="{{settingBox}}">设置</text>
+    <image src="../../images/setting.svg" bindtap="toSetting" wx:if="{{optionBox}}"></image>
+    <image src="../../images/xuanxiang.svg" bindtap="toOption" wx:if="{{settingBox}}"></image>
   </view>
-  <scroll-view class="list" scroll-y="true" upper-threshold="50" lower-threshold="50" scroll-top="0" enable-flex="true">
+  <scroll-view class="list" scroll-y="true" upper-threshold="50" lower-threshold="50" enable-flex="true" wx:if="{{optionBox}}">
     <block wx:if="{{options.length}}">
       <view class="item" hover-class="none" hover-stop-propagation="false" wx:for="{{options}}" wx:key="{{item}}">
         <image src="{{item.imgSrc}}"></image>
@@ -26,10 +29,18 @@
       </view>
     </block>
   </scroll-view>
+  <view class="list col" hover-class="none" hover-stop-propagation="false" wx:if="{{settingBox}}">
+    <view class="settingItem" hover-class="none" hover-stop-propagation="false">
+      <image src="../../images/setting_time.svg"></image>
+      <text selectable="false" space="false" decode="false">倒数间隔</text>
+      <slider min="1" max="9" step="1" backgroundColor="#cdcdcd" block-size="22" block-color="#ffffff" selected-color="#66CDAA" bindchange="getSettingTime" bindchanging="getSettingTime" value="{{setting_time}}"></slider>
+      <text selectable="false" space="false" decode="false">{{setting_time}}秒</text>
+    </view>
+  </view>
 </view>
 <view class="body" hover-class="none" hover-stop-propagation="false" wx:if="{{runMode&&!over}}">
   <view class="num" hover-class="none" hover-stop-propagation="false">
-    <text selectable="false" space="false" decode="false" style="color:{{textColor[num]}}">{{num}}</text>
+    <image src="../../images/{{num}}.svg"></image>
   </view>
   <view class="answer" hover-class="none" hover-stop-propagation="false">
     <text selectable="false" space="false" decode="false">{{options[answer].name}}</text>

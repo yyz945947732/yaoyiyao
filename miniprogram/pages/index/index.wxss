@@ -40,6 +40,15 @@ page {
     justify-content: center;
     align-items: center;
     border-bottom: 2px solid #f7f7f7;
+    position: relative;
+}
+
+.body .title image {
+    height: 40rpx;
+    width: 40rpx;
+    position: absolute;
+    right: 16rpx;
+    margin: auto 0;
 }
 
 .body .title text {
@@ -48,14 +57,18 @@ page {
     font-weight: bold;
 }
 
-.body .title text::before{
-    color:#66CDAA;
+.body .title text::before {
+    color: #66CDAA;
     content: '—— '
 }
 
-.body .title text::after{
-    color:#66CDAA;
+.body .title text::after {
+    color: #66CDAA;
     content: ' ——'
+}
+
+.col {
+    flex-direction: column;
 }
 
 .body .list {
@@ -101,6 +114,30 @@ page {
     font-size: 28rpx;
 }
 
+.body .list .settingItem {
+    width: 100%;
+    height: 60rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.body .list .settingItem image {
+    height: 50rpx;
+    width: 50rpx;
+}
+
+.body .list .settingItem text {
+    font-size: 36rpx;
+    color: #66CDAA;
+    margin-left: 6rpx;
+}
+
+.body .list .settingItem slider {
+    margin-left: 36rpx;
+    width: 300rpx;
+}
+
 .run {
     width: 92%;
     height: 100rpx;
@@ -133,6 +170,11 @@ page {
 .body .num text {
     font-size: 480rpx;
     font-weight: bolder;
+}
+
+.body .num image {
+    width: 420rpx;
+    height: 420rpx;
 }
 
 .body .answer {

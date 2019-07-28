@@ -8,12 +8,14 @@ Page({
     data: {
         userInfo: {},
         logged: false,
+        settingBox: false,
+        optionBox: true,
+        setting_time: 1,
         options: [],
         num: 5,
         answer: 0,
         runMode: false,
         over: false,
-        textColor: ['#fd400a', '#fe5323', '#fa6338', '#fe734b', '#fa7f5c', '#fd8f70'],
         animationData: {}
     },
     onShow() {
@@ -57,6 +59,23 @@ Page({
                     url: '/pages/index/login/login'
                 }) : ''
             }
+        })
+    },
+    toSetting() {
+        this.setData({
+            settingBox: true,
+            optionBox: false
+        })
+    },
+    toOption() {
+        this.setData({
+            settingBox: false,
+            optionBox: true
+        })
+    },
+    getSettingTime(e) {
+        this.setData({
+            setting_time: e.detail.value
         })
     },
     getOptions() {
@@ -173,7 +192,7 @@ Page({
                         title: this.data.num.toString()
                     })
                 }
-            }, 1000)
+            }, 1000*this.data.setting_time)
 
     },
 
@@ -216,6 +235,10 @@ Page({
             })
             this.clean()
         } else {
+            wx.showToast({
+                title:'低于5秒才能返回',
+                icon: 'none'
+            });
             return
         }
     },
