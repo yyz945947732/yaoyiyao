@@ -69,7 +69,6 @@ Page({
         db.collection('yyy_options').where({
             _openid: app.globalData.openid
         }).get().then(res => {
-            console.log(res)
             this.setData({
                 options: res.data[0].options,
                 optionId: res.data[0]._id
@@ -146,6 +145,9 @@ Page({
             }, 100)
     },
     beginCount() {
+        wx.setNavigationBarTitle({
+            title: this.data.num.toString()
+        })
         let answerRunId = setInterval(() => {
                 if (this.data.num) {
                     this.setData({
@@ -158,11 +160,17 @@ Page({
                 if (this.data.num == 0) {
                     clearInterval(runId)
                     clearInterval(answerRunId)
+                    wx.setNavigationBarTitle({
+                        title: '摇一摇'
+                    })
                     this.writeRecord()
                 } else {
                     this.setData({
                         runId,
                         num: this.data.num - 1
+                    })
+                    wx.setNavigationBarTitle({
+                        title: this.data.num.toString()
                     })
                 }
             }, 1000)
@@ -203,6 +211,9 @@ Page({
 
     back() {
         if (this.data.runId && this.data.answerRunId && this.data.rotateBell && this.data.num < 5) {
+            wx.setNavigationBarTitle({
+                title: '摇一摇'
+            })
             this.clean()
         } else {
             return

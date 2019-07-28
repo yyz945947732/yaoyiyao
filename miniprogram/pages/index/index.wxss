@@ -48,6 +48,16 @@ page {
     font-weight: bold;
 }
 
+.body .title text::before{
+    color:#66CDAA;
+    content: '—— '
+}
+
+.body .title text::after{
+    color:#66CDAA;
+    content: ' ——'
+}
+
 .body .list {
     display: flex;
     flex-wrap: wrap;

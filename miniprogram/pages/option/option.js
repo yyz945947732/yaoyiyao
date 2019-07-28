@@ -6,6 +6,7 @@ const {
 Page({
     data: {
         options: [],
+        scrollTop:0,
         ifAdd: false,
         focus: false,
         newOption: {},
