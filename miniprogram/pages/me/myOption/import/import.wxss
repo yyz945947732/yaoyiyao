@@ -1,0 +1,87 @@
+page {
+    background: #66CDAA;
+    height: 100%;
+}
+
+.codeBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 360rpx;
+    width: 100%;
+    margin: auto;
+}
+
+.codeBox .codeInputBox {
+    height: 120rpx;
+    width: 90%;
+    border: 1px solid #fff;
+    border-radius: 60rpx;
+    margin-top: 100rpx;
+    padding: 0 20rpx;
+    display: flex;
+}
+
+.codeBox .codeInputBox .imgBox {
+    height: 100%;
+    width: 9%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #fff;
+    padding: 0 20rpx;
+}
+
+.codeBox .codeInputBox .imgBox image {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.codeBox text {
+    color: #fff;
+    font-size: 36rpx;
+}
+
+.codeBox input {
+    font-size: 50rpx;
+    color: #fff;
+    height: 100%;
+    width: 69%;
+    margin-left:20rpx;
+    box-sizing: border-box;
+    padding-right: 60rpx;
+}
+
+.codeInputBox button{
+    height: 100%;
+    width:20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:none;
+    border-left: 1px solid #fff;
+}
+
+.codeInputBox button text{
+    color:#fff;
+    font-size: 32rpx;
+}
+
+.codeBox .nameBox{
+    width:100%;
+    margin-top: 200rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.codeBox .nameBox switch{
+    margin-left: 20rpx;
+}
+
+
+.placehodleStyle {
+    color: #fff;
+}

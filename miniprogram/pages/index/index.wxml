@@ -7,24 +7,24 @@
     <text selectable="false" space="false" decode="false">我的选项</text>
   </view>
   <scroll-view class="list" scroll-y="true" upper-threshold="50" lower-threshold="50" scroll-top="0" enable-flex="true">
-      <block wx:if="{{options.length}}">
-        <view class="item" hover-class="none" hover-stop-propagation="false" wx:for="{{options}}" wx:key="{{item}}">
-          <image src="{{item.imgSrc}}"></image>
-          <view class="item-cover" hover-class="none" hover-stop-propagation="false">
-            <text selectable="false" space="false" decode="false">{{item.name}}</text>
-          </view>
+    <block wx:if="{{options.length}}">
+      <view class="item" hover-class="none" hover-stop-propagation="false" wx:for="{{options}}" wx:key="{{item}}">
+        <image src="{{item.imgSrc}}"></image>
+        <view class="item-cover" hover-class="none" hover-stop-propagation="false">
+          <text selectable="false" space="false" decode="false">{{item.name}}</text>
         </view>
-      </block>
-      <block wx:else>
-        <view class="none" hover-class="none" hover-stop-propagation="false">
-          <image src="../../images/none.svg"></image>
-          <view hover-class="none" hover-stop-propagation="false">
-            <text>你还一个选项都没有,快</text>
-            <text class="navText" bindtap="navToAdd">去添加</text>
-            <text>吧~</text>
-          </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="none" hover-class="none" hover-stop-propagation="false">
+        <image src="../../images/none.svg"></image>
+        <view hover-class="none" hover-stop-propagation="false">
+          <text>你还一个选项都没有,快</text>
+          <text class="navText" bindtap="navToAdd">去添加</text>
+          <text>吧~</text>
         </view>
-      </block>
+      </view>
+    </block>
   </scroll-view>
 </view>
 <view class="body" hover-class="none" hover-stop-propagation="false" wx:if="{{runMode&&!over}}">
@@ -42,6 +42,10 @@
     <text selectable="false" space="false" decode="false">{{options[answer].name}}</text>
   </view>
 </view>
+<button class="share" hover-class="none" wx:if="{{over}}" open-type="share">
+  <image src="../../images/share.svg"></image>
+  <text class="" selectable="false" space="false" decode="false">炫耀一下</text>
+</button>
 <button class="run" size="default" bindtap="run" wx:if="{{!runMode&&!over&&logged}}">
   <text selectable="false" space="false" decode="false">摇起来</text>
 </button>

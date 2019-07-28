@@ -22,7 +22,7 @@
   </navigator>
 </view>
 <view class="bodyList">
-  <navigator class="bodyItem">
+  <navigator class="bodyItem" url="/pages/me/myOption/import/import">
     <image src="../../images/importS.svg"></image>
     <text>导入选项</text>
     <image src="../../images/right.svg" class="right"></image>

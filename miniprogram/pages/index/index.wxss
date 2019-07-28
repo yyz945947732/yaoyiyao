@@ -105,7 +105,7 @@ page {
 .back {
     width: 92%;
     height: 100rpx;
-    margin: 100rpx auto;
+    margin: 50rpx auto;
     background: #fff;
     justify-content: center;
     align-items: center;
@@ -188,4 +188,22 @@ page {
 .navText {
     color: #66CDAA !important;
     text-decoration: underline;
+}
+
+.share {
+    height: 60rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.share text {
+    font-size: 30rpx;
+    color: #66CDAA;
+    margin-left: 6rpx;
+}
+
+.share image {
+    width: 40rpx;
+    height: 40rpx;
 }

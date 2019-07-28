@@ -8,6 +8,8 @@
         "pages/me/myOption/myOption",
         "pages/me/myOption/export/export",
         "pages/me/myOption/export/success/success",
+        "pages/me/myOption/import/import",
+        "pages/me/myOption/import/success/success",
         "pages/me/myRecord/myRecord"
     ],
     "window": {

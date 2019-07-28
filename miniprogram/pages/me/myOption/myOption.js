@@ -25,9 +25,21 @@ Page({
             wx.hideLoading()
         })
     },
-    export(){
+    export () {
+        if (this.data.options.length < 2) {
+            wx.showToast({
+                title: '至少要有两个选项才能导出',
+                icon: 'none'
+            })
+            return
+        }
         wx.navigateTo({
             url: '/pages/me/myOption/export/export',
+        });
+    },
+    import() {
+        wx.navigateTo({
+            url: '/pages/me/myOption/import/import',
         });
     },
     onShareAppMessage() {

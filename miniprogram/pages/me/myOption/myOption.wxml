@@ -20,7 +20,7 @@
     </scroll-view>
 </view>
 <view class="tail" hover-class="none" hover-stop-propagation="false">
-    <button class="default" size="default" type="primary">
+    <button class="default" size="default" type="primary" bindtap="import">
         <image src="../../../images/import.svg"></image>
         <text selectable="false" space="false" decode="false">导入选项</text>
     </button>

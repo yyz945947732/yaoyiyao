@@ -42,33 +42,32 @@ Page({
     })
   },
   confirm() {
-    if (!this.exportCheck()) {
-      return false
-    }
-    wx.showLoading({
-      title: '请稍后'
-    })
-    db.collection('yyy_exports').where({
-      code: this.data.code
-    }).get().then(res => {
-      wx.hideLoading()
-      if (!res.data.length) {
-        wx.showModal({
-          title: '提示',
-          content: '确定导出选项吗?',
-          cancelText: '等等',
-          confirmText: '确定',
-          success: res => {
-            if (res.confirm) {
-              this.exportAction()
-            }
+    wx.showModal({
+      title: '提示',
+      content: '确定导出选项吗?',
+      cancelText: '等等',
+      confirmText: '确定',
+      success: res => {
+        if (res.confirm) {
+          if (!this.exportCheck()) {
+            return false
           }
-        })
-      } else {
-        wx.showToast({
-          title: '该选项码已被占用',
-          icon: 'none'
-        });
+          wx.showLoading({
+            title: '请稍后'
+          })
+          db.collection('yyy_exports').where({
+            code: this.data.code
+          }).get().then(res => {
+            if (!res.data.length) {
+              this.exportAction()
+            } else {
+              wx.showToast({
+                title: '该选项码已被占用',
+                icon: 'none'
+              });
+            }
+          })
+        }
       }
     })
   },
