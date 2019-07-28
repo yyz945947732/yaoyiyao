@@ -18,8 +18,7 @@ Page({
             _openid: app.globalData.openid
         }).get().then(res => {
             this.setData({
-                options: res.data[0].options,
-                optionId: res.data[0]._id
+                options: res.data[0].options
             })
             wx.hideLoading()
         }).catch(() => {

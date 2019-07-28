@@ -4,9 +4,13 @@
         <view class="imgBox" hover-class="none" hover-stop-propagation="false">
             <image src="../../../../images/code.svg"></image>
         </view>
-        <input placeholder="请填写选项码" placeholder-class="placehodleStyle"></input>
-        <button  plain="true" hover-class="none">
+        <input placeholder="请填写选项码" placeholder-class="placehodleStyle" bindinput="getCode"></input>
+        <button plain="true" hover-class="none" bindtap="confirm">
             <text selectable="false" space="false" decode="false">确定</text>
         </button>
+    </view>
+    <view class="nameBox" hover-class="none" hover-stop-propagation="false">
+        <text selectable="false" space="false" decode="false">匿名</text>
+        <switch type="switch" bindchange="ifName" color="#66CDAA" type="checkbox"></switch>
     </view>
 </view>

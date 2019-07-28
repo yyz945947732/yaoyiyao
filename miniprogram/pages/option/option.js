@@ -1,5 +1,8 @@
 const app = getApp();
 const db = wx.cloud.database();
+const {
+    formatTime
+} = require("../../utils/index")
 Page({
     data: {
         options: [],
@@ -125,7 +128,7 @@ Page({
         db.collection('yyy_options').add({
             data: {
                 options: this.data.options,
-                create_date: this.formatTime(new Date),
+                create_date: formatTime(new Date),
                 total: this.data.options.length,
                 userName: app.globalData.userInfo.nickName
             }
@@ -142,7 +145,7 @@ Page({
         db.collection('yyy_options').doc(this.data.optionId).update({
             data: {
                 options: this.data.options,
-                create_date: this.formatTime(new Date),
+                create_date: formatTime(new Date),
                 total: this.data.options.length,
                 userName: app.globalData.userInfo.nickName
             }
@@ -172,19 +175,6 @@ Page({
                 icon: 'none'
             })
         })
-    },
-    formatTime(date) {
-        const year = date.getFullYear()
-        const month = date.getMonth() + 1
-        const day = date.getDate()
-        const hour = date.getHours()
-        const minute = date.getMinutes()
-        const second = date.getSeconds()
-        return [year, month, day].map(this.formatNumber).join('-') + ' ' + [hour, minute, second].map(this.formatNumber).join(':')
-    },
-    formatNumber(n) {
-        n = n.toString()
-        return n[1] ? n : '0' + n
     },
     close() {
         this.setData({
