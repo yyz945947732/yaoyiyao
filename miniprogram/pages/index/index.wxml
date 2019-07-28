@@ -6,8 +6,7 @@
   <view class="title" hover-class="none" hover-stop-propagation="false">
     <text selectable="false" space="false" decode="false">我的选项</text>
   </view>
-  <scroll-view class="list" scroll-y="true" upper-threshold="50" lower-threshold="50" scroll-top="0">
-    <view class="list" hover-class="none" hover-stop-propagation="false">
+  <scroll-view class="list" scroll-y="true" upper-threshold="50" lower-threshold="50" scroll-top="0" enable-flex="true">
       <block wx:if="{{options.length}}">
         <view class="item" hover-class="none" hover-stop-propagation="false" wx:for="{{options}}" wx:key="{{item}}">
           <image src="{{item.imgSrc}}"></image>
@@ -26,7 +25,6 @@
           </view>
         </view>
       </block>
-    </view>
   </scroll-view>
 </view>
 <view class="body" hover-class="none" hover-stop-propagation="false" wx:if="{{runMode&&!over}}">
