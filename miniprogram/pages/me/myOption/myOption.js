@@ -26,6 +26,11 @@ Page({
             wx.hideLoading()
         })
     },
+    export(){
+        wx.navigateTo({
+            url: '/pages/me/myOption/export/export',
+        });
+    },
     onShareAppMessage() {
         return {
             title: '选择困难症?试试这个吧',

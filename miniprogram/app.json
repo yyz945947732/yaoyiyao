@@ -6,6 +6,7 @@
         "pages/option/success/success",
         "pages/me/me",
         "pages/me/myOption/myOption",
+        "pages/me/myOption/export/export",
         "pages/me/myRecord/myRecord"
     ],
     "window": {

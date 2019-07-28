@@ -1,0 +1,12 @@
+<view class="codeBox" hover-class="none" hover-stop-propagation="false">
+    <text selectable="false" space="false" decode="false">请设置选项码以便导入此选项</text>
+    <view class="codeInputBox" hover-class="none" hover-stop-propagation="false">
+        <view class="imgBox" hover-class="none" hover-stop-propagation="false">
+            <image src="../../../../images/code.svg"></image>
+        </view>
+        <input placeholder="请填写选项码" placeholder-class="placehodleStyle"></input>
+        <button  plain="true" hover-class="none">
+            <text selectable="false" space="false" decode="false">确定</text>
+        </button>
+    </view>
+</view>
