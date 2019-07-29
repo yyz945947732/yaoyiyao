@@ -42,6 +42,11 @@
       <slider min="50" max="900" step="50" backgroundColor="#cdcdcd" block-size="22" block-color="#ffffff" selected-color="#66CDAA" bindchange="getSettingV" bindchanging="getSettingV" value="{{setting_v}}"></slider>
       <text selectable="false" space="false" decode="false">{{setting_v}}ms/次</text>
     </view>
+    <view class="settingItem" hover-class="none" hover-stop-propagation="false">
+      <image src="../../images/setting_record.svg"></image>
+      <text selectable="false" space="false" decode="false">停止记录</text>
+      <switch checked="{{setting_bindRecord}}" type="checkbox" bindchange="getSettingRecord" color="#66CDAA"></switch>
+    </view>
   </view>
 </view>
 <view class="body" hover-class="none" hover-stop-propagation="false" wx:if="{{runMode&&!over}}">

@@ -141,6 +141,11 @@ page {
     flex: 1;
 }
 
+.body .list .settingItem switch {
+    margin-left: 36rpx;
+    flex: 1;
+}
+
 .run {
     width: 92%;
     height: 100rpx;

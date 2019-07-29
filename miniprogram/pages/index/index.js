@@ -12,6 +12,7 @@ Page({
         optionBox: true,
         setting_time: 1,
         setting_v: 200,
+        setting_bindRecord: false,
         options: [],
         num: 5,
         answer: 0,
@@ -82,6 +83,11 @@ Page({
     getSettingV(e) {
         this.setData({
             setting_v: e.detail.value
+        })
+    },
+    getSettingRecord(e) {
+        this.setData({
+            setting_bindRecord: e.detail.value
         })
     },
     getOptions() {
@@ -186,7 +192,7 @@ Page({
                     wx.setNavigationBarTitle({
                         title: '摇一摇'
                     })
-                    this.writeRecord()
+                    this.data.setting_bindRecord ? this.overAction() : this.writeRecord();
                 } else {
                     this.setData({
                         runId,
@@ -215,15 +221,18 @@ Page({
                 userName: app.globalData.userInfo.nickName
             }
         }).then(() => {
-            this.setData({
-                runMode: false,
-                over: true
-            })
-            wx.vibrateLong()
-            wx.hideLoading()
+            this.overAction()
         }).catch(() => {
             wx.hideLoading()
         })
+    },
+    overAction() {
+        this.setData({
+            runMode: false,
+            over: true
+        })
+        wx.vibrateLong()
+        wx.hideLoading()
     },
 
     getRandom() {
