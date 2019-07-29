@@ -7,6 +7,14 @@ Page({
   data: {
     code: ''
   },
+  onLoad(option) {
+    if (option.key) {
+      this.setData({
+        code: '1'
+      })
+      this.confirm()
+    }
+  },
   confirm() {
     if (!this.importCheck()) {
       return false
@@ -25,7 +33,7 @@ Page({
           options: res.data[0].options,
           exportId: res.data[0]._id,
           importTime: res.data[0].importTime,
-          name:res.data[0].name,
+          name: res.data[0].name,
         })
         this.importAction()
       } else {
@@ -67,7 +75,7 @@ Page({
         create_date: formatTime(new Date),
         total: this.data.options.length,
         userName: app.globalData.userInfo.nickName,
-        name:this.data.name
+        name: this.data.name
       }
     }).then(() => {
       this.success()
@@ -85,7 +93,7 @@ Page({
         create_date: formatTime(new Date),
         total: this.data.options.length,
         userName: app.globalData.userInfo.nickName,
-        name:this.data.name
+        name: this.data.name
       }
     }).then(() => {
       this.success()

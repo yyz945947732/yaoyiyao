@@ -6,7 +6,7 @@ const app = getApp()
 const db = wx.cloud.database();
 Page({
     data: {
-        name:'我的选项',
+        name: '我的选项',
         userInfo: {},
         logged: false,
         settingBox: false,
@@ -104,14 +104,18 @@ Page({
             this.setData({
                 options: res.data[0].options,
                 optionId: res.data[0]._id,
-                name:res.data[0].name
+                name: res.data[0].name
             })
             wx.hideLoading()
         }).catch(() => {
             wx.hideLoading()
         })
     },
-
+    oneKeyGet() {
+        wx.navigateTo({
+            url: '/pages/me/myOption/import/import?key=1'
+        })
+    },
     onGetUserInfo(e) {
         if (!this.logged && e.detail.userInfo) {
             this.setData({

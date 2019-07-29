@@ -111,7 +111,7 @@ page {
 
 .body .list .item text {
     color: white;
-    font-size: 28rpx;
+    font-size: 38rpx;
 }
 
 .body .list .settingItem {

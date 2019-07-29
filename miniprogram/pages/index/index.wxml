@@ -26,6 +26,10 @@
           <text class="navText" bindtap="navToAdd">去添加</text>
           <text>吧~</text>
         </view>
+        <view hover-class="none" hover-stop-propagation="false">
+          <text selectable="false" space="false" decode="false">懒得添加?你也可以</text>
+          <text class="navText" bindtap="oneKeyGet">一键导入默认选项</text>
+        </view>
       </view>
     </block>
   </scroll-view>

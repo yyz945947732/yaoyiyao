@@ -4,7 +4,7 @@
         <view class="imgBox" hover-class="none" hover-stop-propagation="false">
             <image src="../../../../images/code.svg"></image>
         </view>
-        <input placeholder="请输入选项码" placeholder-class="placehodleStyle" bindinput="getCode"></input>
+        <input placeholder="请输入选项码" placeholder-class="placehodleStyle" bindinput="getCode" value="{{code}}"></input>
         <button plain="true" hover-class="none" bindtap="confirm">
             <text selectable="false" space="false" decode="false">确定</text>
         </button>

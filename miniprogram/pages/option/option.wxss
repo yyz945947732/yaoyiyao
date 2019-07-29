@@ -58,6 +58,10 @@
     padding-left: 20rpx;
 }
 
+.list .item:last-child{
+    margin-bottom: 1rpx;
+}
+
 .list .item .index {
     height:100rpx;
     display: flex;
@@ -147,6 +151,7 @@
     box-sizing: border-box;
     padding-right: 30rpx;
     margin-bottom: 10rpx;
+    background: #fff;
 }
 
 .body .total text{
