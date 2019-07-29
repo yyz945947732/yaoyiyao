@@ -11,6 +11,8 @@ Page({
         ifAdd: false,
         ifChange: false,
         focus: false,
+        showOptionList:true,
+        showActionList:true,
         newOption: {},
         defaultImgSrc: '../../images/xx.png',
         bigImg: '../../images/images.svg'
@@ -187,6 +189,16 @@ Page({
             })
         })
     },
+    drop() {
+        this.setData({
+            showOptionList: !this.data.showOptionList
+        })
+    },
+    drop2() {
+        this.setData({
+            showActionList: !this.data.showActionList
+        })
+    },
     setNewName(e) {
         this.setData({
             newName: e.detail.value
@@ -194,7 +206,7 @@ Page({
     },
     confirmChange() {
         this.setData({
-            ifChange:false,
+            ifChange: false,
             name: this.data.newName
         })
     },

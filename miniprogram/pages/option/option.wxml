@@ -7,42 +7,54 @@
         </view>
         <text class="remove" bindtap="clearAllOptions" wx:if="{{options.length}}">清空</text>
     </view>
-    <view class="list" hover-class="none" hover-stop-propagation="false">
-        <block wx:if="{{options.length}}">
-            <view class="item" hover-class="none" hover-stop-propagation="false" wx:for="{{options}}" wx:key="{{index}}">
-                <view class="index" hover-class="none" hover-stop-propagation="false">
-                    <image src="{{item.imgSrc}}"></image>
-                </view>
-                <view class="content" hover-class="none" hover-stop-propagation="false">
-                    <text>{{item.name}}</text>
-                </view>
-                <view class="remove" hover-class="none" hover-stop-propagation="false">
-                    <image src="../../images/remove.svg" bindtap="remove" data-i="{{index}}"></image>
-                </view>
-            </view>
-        </block>
-        <block wx:else>
-            <view class="none" hover-class="none" hover-stop-propagation="false">
-                <image src="../../images/none.svg"></image>
-                <view hover-class="none" hover-stop-propagation="false">
-                    <text>你还一个选项都没有,赶紧</text>
-                    <text class="navText" bindtap="addOption">添加一项</text>
-                    <text>吧~</text>
-                </view>
-            </view>
-        </block>
+    <view class="dropdown" hover-class="none" hover-stop-propagation="false">
+        <text>列表</text>
+        <image src="../../images/dropdown.svg" bindtap="drop" style="transform:rotate({{showOptionList ? '180deg' :'0deg'}})"></image>
     </view>
-    <view class="total">
-        <text>{{options.length}}</text>
+    <block wx:if="{{showOptionList}}">
+        <view class="list" hover-class="none" hover-stop-propagation="false">
+            <block wx:if="{{options.length}}">
+                <view class="item" hover-class="none" hover-stop-propagation="false" wx:for="{{options}}" wx:key="{{index}}">
+                    <view class="index" hover-class="none" hover-stop-propagation="false">
+                        <image src="{{item.imgSrc}}"></image>
+                    </view>
+                    <view class="content" hover-class="none" hover-stop-propagation="false">
+                        <text>{{item.name}}</text>
+                    </view>
+                    <view class="remove" hover-class="none" hover-stop-propagation="false">
+                        <image src="../../images/remove.svg" bindtap="remove" data-i="{{index}}"></image>
+                    </view>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="none" hover-class="none" hover-stop-propagation="false">
+                    <image src="../../images/none.svg"></image>
+                    <view hover-class="none" hover-stop-propagation="false">
+                        <text>你还一个选项都没有,赶紧</text>
+                        <text class="navText" bindtap="addOption">添加一项</text>
+                        <text>吧~</text>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view class="total">
+            <text>{{options.length}}</text>
+        </view>
+    </block>
+    <view class="dropdown" hover-class="none" hover-stop-propagation="false">
+        <text>操作</text>
+        <image src="../../images/dropdown.svg" bindtap="drop2" style="transform:rotate({{showActionList ? '180deg' :'0deg'}})"></image>
     </view>
-    <view class="add" hover-class="none" hover-stop-propagation="false" bindtap="changeName">
-        <image src="../../images/listName.svg"></image>
-        <text selectable="false" space="false" decode="false">编辑列表名称</text>
-    </view>
-    <view class="add" hover-class="none" hover-stop-propagation="false" bindtap="addOption">
-        <image src="../../images/add.svg"></image>
-        <text selectable="false" space="false" decode="false">添加一项</text>
-    </view>
+    <block wx:if="{{showActionList}}">
+        <view class="add" hover-class="none" hover-stop-propagation="false" bindtap="changeName">
+            <image src="../../images/listName.svg"></image>
+            <text selectable="false" space="false" decode="false">更改列表名称</text>
+        </view>
+        <view class="add" hover-class="none" hover-stop-propagation="false" bindtap="addOption">
+            <image src="../../images/add.svg"></image>
+            <text selectable="false" space="false" decode="false">添加一项</text>
+        </view>
+    </block>
     <view class="tip" hover-class="none" hover-stop-propagation="false">
         <text selectable="false" space="false" decode="false">操作完记得保存哦~</text>
     </view>
