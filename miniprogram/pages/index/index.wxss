@@ -118,8 +118,11 @@ page {
     width: 100%;
     height: 60rpx;
     display: flex;
+    margin: 24rpx 0;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
+    padding: 20rpx;
 }
 
 .body .list .settingItem image {
@@ -135,7 +138,7 @@ page {
 
 .body .list .settingItem slider {
     margin-left: 36rpx;
-    width: 300rpx;
+    flex: 1;
 }
 
 .run {

@@ -11,6 +11,7 @@ Page({
         settingBox: false,
         optionBox: true,
         setting_time: 1,
+        setting_v: 200,
         options: [],
         num: 5,
         answer: 0,
@@ -76,6 +77,11 @@ Page({
     getSettingTime(e) {
         this.setData({
             setting_time: e.detail.value
+        })
+    },
+    getSettingV(e) {
+        this.setData({
+            setting_v: e.detail.value
         })
     },
     getOptions() {
@@ -153,9 +159,6 @@ Page({
                 duration: 100
             }),
             rotateBell = setInterval(() => {
-                if (this.data.num == 0) {
-                    clearInterval(rotateBell)
-                }
                 animation.rotate(45).step().rotate(-45).step().rotate(0).step()
                 this.setData({
                     animationData: animation.export(),
@@ -165,7 +168,7 @@ Page({
     },
     beginCount() {
         wx.setNavigationBarTitle({
-            title: this.data.num.toString()
+            title: '正在倒数...' + this.data.num.toString()
         })
         let answerRunId = setInterval(() => {
                 if (this.data.num) {
@@ -174,11 +177,12 @@ Page({
                         answer: this.getRandom()
                     })
                 }
-            }, 200),
+            }, this.data.setting_v),
             runId = setInterval(() => {
                 if (this.data.num == 0) {
                     clearInterval(runId)
                     clearInterval(answerRunId)
+                    clearInterval(this.data.rotateBell)
                     wx.setNavigationBarTitle({
                         title: '摇一摇'
                     })
@@ -189,10 +193,10 @@ Page({
                         num: this.data.num - 1
                     })
                     wx.setNavigationBarTitle({
-                        title: this.data.num.toString()
+                        title: '正在倒数...' + this.data.num.toString()
                     })
                 }
-            }, 1000*this.data.setting_time)
+            }, 1000 * this.data.setting_time)
 
     },
 
@@ -236,7 +240,7 @@ Page({
             this.clean()
         } else {
             wx.showToast({
-                title:'低于5秒才能返回',
+                title: '低于5秒才能返回',
                 icon: 'none'
             });
             return

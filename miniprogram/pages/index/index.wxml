@@ -36,6 +36,12 @@
       <slider min="1" max="9" step="1" backgroundColor="#cdcdcd" block-size="22" block-color="#ffffff" selected-color="#66CDAA" bindchange="getSettingTime" bindchanging="getSettingTime" value="{{setting_time}}"></slider>
       <text selectable="false" space="false" decode="false">{{setting_time}}秒</text>
     </view>
+    <view class="settingItem" hover-class="none" hover-stop-propagation="false">
+      <image src="../../images/setting_v.svg"></image>
+      <text selectable="false" space="false" decode="false">变更频率</text>
+      <slider min="50" max="900" step="50" backgroundColor="#cdcdcd" block-size="22" block-color="#ffffff" selected-color="#66CDAA" bindchange="getSettingV" bindchanging="getSettingV" value="{{setting_v}}"></slider>
+      <text selectable="false" space="false" decode="false">{{setting_v}}ms/次</text>
+    </view>
   </view>
 </view>
 <view class="body" hover-class="none" hover-stop-propagation="false" wx:if="{{runMode&&!over}}">
