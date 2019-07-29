@@ -4,7 +4,7 @@
 </view>
 <view class="body" wx:if="{{!runMode&&!over}}">
   <view class="title" hover-class="none" hover-stop-propagation="false">
-    <text selectable="false" space="false" decode="false" wx:if="{{optionBox}}">我的选项</text>
+    <text selectable="false" space="false" decode="false" wx:if="{{optionBox}}">{{name}}</text>
     <text selectable="false" space="false" decode="false" wx:if="{{settingBox}}">设置</text>
     <image src="../../images/setting.svg" bindtap="toSetting" wx:if="{{optionBox}}"></image>
     <image src="../../images/xuanxiang.svg" bindtap="toOption" wx:if="{{settingBox}}"></image>

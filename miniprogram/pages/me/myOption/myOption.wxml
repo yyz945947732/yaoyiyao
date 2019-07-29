@@ -2,7 +2,7 @@
 <view class="body" scroll-y="true" upper-threshold="50" lower-threshold="50" scroll-top="0">
     <view class="title" hover-class="none" hover-stop-propagation="false">
         <image src="../../../images/xuanxiang.svg"></image>
-        <text selectable="false" space="false" decode="false">我的选项</text>
+        <text selectable="false" space="false" decode="false">{{name}}</text>
     </view>
     <text wx:if="{{!options.length}}" class="noOption">暂无选项</text>
     <scroll-view class="list" scroll-y="true" upper-threshold="50" lower-threshold="50" scroll-top="0" enable-flex="true">

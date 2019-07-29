@@ -6,8 +6,10 @@ const {
 Page({
     data: {
         options: [],
+        name: '我的选项',
         scrollTop: 0,
         ifAdd: false,
+        ifChange: false,
         focus: false,
         newOption: {},
         defaultImgSrc: '../../images/xx.png',
@@ -36,7 +38,8 @@ Page({
             console.log(res)
             this.setData({
                 options: res.data[0].options,
-                optionId: res.data[0]._id
+                optionId: res.data[0]._id,
+                name: res.data[0].name
             })
             wx.hideLoading()
         }).catch(() => {
@@ -47,6 +50,11 @@ Page({
         this.setData({
             ifAdd: true,
             focus: true
+        })
+    },
+    changeName() {
+        this.setData({
+            ifChange: true
         })
     },
     clearAllOptions() {
@@ -131,7 +139,8 @@ Page({
                 options: this.data.options,
                 create_date: formatTime(new Date),
                 total: this.data.options.length,
-                userName: app.globalData.userInfo.nickName
+                userName: app.globalData.userInfo.nickName,
+                name: this.data.name
             }
         }).then(() => {
             this.success()
@@ -148,7 +157,8 @@ Page({
                 options: this.data.options,
                 create_date: formatTime(new Date),
                 total: this.data.options.length,
-                userName: app.globalData.userInfo.nickName
+                userName: app.globalData.userInfo.nickName,
+                name: this.data.name
             }
         }).then(() => {
             this.success()
@@ -177,9 +187,21 @@ Page({
             })
         })
     },
+    setNewName(e) {
+        this.setData({
+            newName: e.detail.value
+        })
+    },
+    confirmChange() {
+        this.setData({
+            ifChange:false,
+            name: this.data.newName
+        })
+    },
     close() {
         this.setData({
             ifAdd: false,
+            ifChange: false,
             focus: false,
             newOption: {},
             bigImg: '../../images/images.svg'

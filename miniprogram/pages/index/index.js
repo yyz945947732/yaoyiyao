@@ -6,6 +6,7 @@ const app = getApp()
 const db = wx.cloud.database();
 Page({
     data: {
+        name:'我的选项',
         userInfo: {},
         logged: false,
         settingBox: false,
@@ -102,7 +103,8 @@ Page({
         }).get().then(res => {
             this.setData({
                 options: res.data[0].options,
-                optionId: res.data[0]._id
+                optionId: res.data[0]._id,
+                name:res.data[0].name
             })
             wx.hideLoading()
         }).catch(() => {

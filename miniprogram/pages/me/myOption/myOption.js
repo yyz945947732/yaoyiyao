@@ -4,6 +4,7 @@ Page({
 
 
     data: {
+        name:'我的选项',
         options: []
     },
 
@@ -18,7 +19,8 @@ Page({
             _openid: app.globalData.openid
         }).get().then(res => {
             this.setData({
-                options: res.data[0].options
+                options: res.data[0].options,
+                name:res.data[0].name
             })
             wx.hideLoading()
         }).catch(() => {

@@ -59,19 +59,15 @@
 }
 
 .list .item .index {
-    height: 60rpx;
-    width: 60rpx;
-    border-radius: 50%;
-    background: #66CDAA;
+    height:100rpx;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.list .item .index text {
-    color: #fff;
-    font-weight: bold;
-    font-size: 24rpx;
+.list .item .index image {
+    width: 60rpx;
+    height:60rpx;
 }
 
 .list .item .content {
@@ -107,13 +103,18 @@
 .body .add {
     display: flex;
     background: #fff;
-    margin: 10rpx 0;
+    margin-top: 10rpx;
     box-sizing: border-box;
     padding-left: 20rpx;
     align-items: center;
     height: 100rpx;
     width: 100%;
-    margin-bottom: 30rpx;
+    margin-bottom:1rpx;
+}
+
+.body .add:last-child{
+    margin: 1rpx 0;
+    margin-bottom:6rpx;
 }
 
 .body .add image {
@@ -130,12 +131,37 @@
 .body .save {
     width: 92%;
     height: 100rpx;
-    margin: 39rpx auto;
+    margin: 19rpx auto;
     background: #66CDAA;
     color: #fff;
     justify-content: center;
     align-items: center;
     display: flex;
+}
+
+.body .total{
+    width:100%;
+    height:50rpx;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    box-sizing: border-box;
+    padding-right: 30rpx;
+}
+
+.body .total text{
+    font-size:26rpx;
+    color:#F56C6C;
+}
+
+.body .total text::before{
+    content:'共 ';
+    color:#66CDAA;
+}
+
+.body .total text::after{
+    content:' 项';
+    color:#66CDAA;
 }
 
 .none {
@@ -247,4 +273,8 @@
     align-items: center;
     background: #66CDAA;
     color: #fff !important;
+}
+
+.changeBt{
+    margin-top:200rpx !important;
 }

@@ -24,7 +24,8 @@ Page({
         this.setData({
           options: res.data[0].options,
           exportId: res.data[0]._id,
-          importTime: res.data[0].importTime
+          importTime: res.data[0].importTime,
+          name:res.data[0].name,
         })
         this.importAction()
       } else {
@@ -65,7 +66,8 @@ Page({
         options: this.data.options,
         create_date: formatTime(new Date),
         total: this.data.options.length,
-        userName: app.globalData.userInfo.nickName
+        userName: app.globalData.userInfo.nickName,
+        name:this.data.name
       }
     }).then(() => {
       this.success()
@@ -82,7 +84,8 @@ Page({
         options: this.data.options,
         create_date: formatTime(new Date),
         total: this.data.options.length,
-        userName: app.globalData.userInfo.nickName
+        userName: app.globalData.userInfo.nickName,
+        name:this.data.name
       }
     }).then(() => {
       this.success()

@@ -3,7 +3,7 @@
     <view class="title" hover-class="none" hover-stop-propagation="false">
         <view class="left" hover-class="none" hover-stop-propagation="false">
             <image src="../../images/xuanxiang.svg"></image>
-            <text selectable="false" space="false" decode="false">我的选项</text>
+            <text selectable="false" space="false" decode="false">{{name}}</text>
         </view>
         <text class="remove" bindtap="clearAllOptions" wx:if="{{options.length}}">清空</text>
     </view>
@@ -11,7 +11,7 @@
         <block wx:if="{{options.length}}">
             <view class="item" hover-class="none" hover-stop-propagation="false" wx:for="{{options}}" wx:key="{{index}}">
                 <view class="index" hover-class="none" hover-stop-propagation="false">
-                    <text>{{index+1}}</text>
+                    <image src="{{item.imgSrc}}"></image>
                 </view>
                 <view class="content" hover-class="none" hover-stop-propagation="false">
                     <text>{{item.name}}</text>
@@ -32,6 +32,13 @@
             </view>
         </block>
     </view>
+    <view class="total">
+        <text>{{options.length}}</text>
+    </view>
+    <view class="add" hover-class="none" hover-stop-propagation="false" bindtap="changeName">
+        <image src="../../images/listName.svg"></image>
+        <text selectable="false" space="false" decode="false">编辑列表名称</text>
+    </view>
     <view class="add" hover-class="none" hover-stop-propagation="false" bindtap="addOption">
         <image src="../../images/add.svg"></image>
         <text selectable="false" space="false" decode="false">添加一项</text>
@@ -50,9 +57,20 @@
         </view>
         <input type="text" placeholder="请输入新增选项(7个字以内)" bindchange="setNewOption" maxlength="7" focus="{{focus}}"></input>
         <view class="addImageBox" hover-class="none" hover-stop-propagation="false">
-             <image src="{{bigImg}}" bindtap="changeBigImg"></image>
+            <image src="{{bigImg}}" bindtap="changeBigImg"></image>
         </view>
         <button size="default" type="primary" bindtap="confirm">
+            <text>确定</text>
+        </button>
+    </view>
+</view>
+<view class="cover" hover-class="none" hover-stop-propagation="false" wx:if="{{ifChange}}">
+    <view class="newOption" hover-class="none" hover-stop-propagation="false">
+        <view class="close" hover-class="none" hover-stop-propagation="false">
+            <image src="../../images/close.svg" bindtap="close"></image>
+        </view>
+        <input type="text" placeholder="请输入新名称(10个字以内)" bindchange="setNewName" maxlength="10"></input>
+        <button size="default" type="primary" bindtap="confirmChange" class="changeBt">
             <text>确定</text>
         </button>
     </view>
