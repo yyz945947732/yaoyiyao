@@ -70,6 +70,7 @@
         <input type="text" placeholder="请输入新增选项(7个字以内)" bindchange="setNewOption" maxlength="7" focus="{{focus}}"></input>
         <view class="addImageBox" hover-class="none" hover-stop-propagation="false">
             <image src="{{bigImg}}" bindtap="changeBigImg"></image>
+            <text>(可上传1张图片)</text>
         </view>
         <button size="default" type="primary" bindtap="confirm">
             <text>确定</text>

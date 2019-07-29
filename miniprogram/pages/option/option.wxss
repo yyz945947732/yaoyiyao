@@ -248,14 +248,20 @@
     height: 100rpx;
     width: 90%;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 20rpx;
+    /* align-items: center; */
+    /* justify-content: space-between; */
+    margin-top: 30rpx;
 }
 
 .cover .newOption .addImageBox image{
     height: 100rpx;
     width:100rpx;
+}
+
+.cover .newOption .addImageBox text{
+    font-size:26rpx;
+    color:#66CDAA;
+    margin:60rpx 0 0 20rpx;
 }
 
 .cover .newOption input {
