@@ -6,7 +6,7 @@ const {
 Page({
     data: {
         options: [],
-        scrollTop:0,
+        scrollTop: 0,
         ifAdd: false,
         focus: false,
         newOption: {},
@@ -86,7 +86,7 @@ Page({
         })
     },
     checkOption() {
-        if (!this.data.newOption) {
+        if (!this.data.newOption.name) {
             wx.showToast({
                 title: '新选项不能为空',
                 icon: 'none'
