@@ -5,7 +5,7 @@
     <view class="bottom" hover-class="none" hover-stop-propagation="false">
       <text selectable="false" space="false" decode="false">{{userName}}</text>
       <image src="../../images/boy.svg" wx:if="{{gender==1}}"></image>
-      <image src="../../images/girl.svg" wx:if="{{gender==0}}"></image>
+      <image src="../../images/girl.svg" wx:if="{{gender==2}}"></image>
     </view>
   </view>
 </view>
