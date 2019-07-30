@@ -39,5 +39,5 @@
   </navigator>
 </view>
 <view class="version" hover-class="none" hover-stop-propagation="false">
-  <text selectable="false" space="false" decode="false">当前版本号 1.0.8</text>
+  <text selectable="false" space="false" decode="false">当前版本号 1.0.9</text>
 </view>
